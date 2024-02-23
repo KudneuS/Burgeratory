@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="keyboards" content="бургерная, шаблон, самостоятельно" />
+    <meta name="description" content="Бургерная, где ты можешь создавать собственные бургеры." />
+    <meta http-equiv="autor" content="Це всё наше">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="icon" href="../images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <title>Buger Craft</title>
+</head>
+<body style="background-image: url('../images/infoBG.png'); background-size: cover; background-position: center;">
+    <!--Создаём блок верхней менюшки-->
+    <div id="header">
+      <img src="../images/logo.png" id="logoMobile" class="d-lg-none">
+      <div id="title" class="d-lg-none">Burgeratory</div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li id="element1" class="navElement"><a href="../index.html"><button>главная</button></a></li>
+                <li id="element2" class="navElement"><a href="menu.html"><button>заказать</button></a></li>
+                <li id="element3" class="navElement"><a href="lab.html"><button>лаборатория</button></a></li>
+                <li id="active4" class="navElement"><button id="activePage"><u>информация</u></button></li>
+              </ul>
+              <span class="navbar-text">
+                Burgeratory
+                <img src="../images/logo.png" id="logo" class="ms-3">
+              </span>
+            </div>
+          </div>
+        </nav>
+        <button id="offcanvasMenu" class="btn btn-light d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          <img src="../images/listIcon.png" id="menuIconButton" />
+        </button>
+    </div>
+    <!--создаём блок мобильной менюшки-->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Burgeratory</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasExample" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><a href="../index.html">главная</a></li>
+              <li class="list-group-item"><a href="menu.html">заказать</a></li>
+              <li class="list-group-item"><a href="lab.html">лаборатория</a></li>
+              <li class="list-group-item"><b><u>информация</u></b></li>
+            </ul>
+          </div>
+        </div>
+    </div>
+
+    <br /><br /><br /><br />
+    <!--создаём блок часто задаваемых вопросов-->
+    <div class="row">
+      <div class="col">
+        <div class="infoText fs-1 my-3">FAQ:</div>
+        <div class="container-lg my-3">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      как сделать собственный бургер?
+                      </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                      Для этого вам необходимо перейти на страницу <a href="lab.html" style="text-decoration: underline !important;">ЛАБОРАТОРИ</a>. Добавить ингредиенты можно нажав на одноимённую кнопку,  их порядок можно будет менять с помощью стрелочек, которые появляются при наведении курсора ан ингредиент.  После нужно будет нажать на кнопку сохранить и вам предложат выбрать название. Готово.
+                      </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      как начать создавать новый шаблон?
+                      </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                      Нажмите на кнопу удалить в <a href="lab.html" style="text-decoration: underline !important;">ЛАБОРАТОРИИ</a> и тогда ваша рабочая область очистится. Если вы до этого сохранили шаблон, то он не удалится.
+                      </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      как сделать заказ?
+                      </button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                      Перейдите во вкладку <a href="menu.html" style="text-decoration: underline !important;">ЗАКАЗАТЬ</a>, добавьте шаблонов(бургеров) в корзину. Перейти в корзину можно с главной страницы или со страницы <a href="menu.html" style="text-decoration: underline !important;">ЗАКАЗАТЬ</a>. Проверте содержимое корзины и нажмине на кнопку <b>ОФОРМИТЬ ЗАКАЗ</b>. После проверте счёт и введите ваши данные. нажав на кнопку подтвердить заказ он будет отправлен нам.
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <!--создаём блок карты-->
+      <div class="col">
+        <div class="infoText fs-1 my-3">Наш офис:</div>
+        <div class="container-lg ratio ratio-21x9 my-3">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d894.4958045288487!2d28.824167643062868!3d47.03146332846111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97dc9e52da021%3A0x54a13951eece69b0!2z0JvQuNGG0LXQuSDQuNC8LiDQkC7QoS4g0J_Rg9GI0LrQuNC90LA!5e0!3m2!1sru!2s!4v1677415702739!5m2!1sru!2s" id="location"></iframe>
+        </div>
+      </div>
+      <!--создаём блок контактов-->
+      <div class="col">
+        <div id="contacts" class="row">
+          <div class="infoText fs-1 my-3">Контакты:</div>
+          <div class="row contactCol">
+            <img src="../images/mailIcon.png" class="contactIcon">
+            <p class="fs-5 contactText"><a href="mailto:burgercraft2@gmail.com">burgeratory@gmail.com</a></p>
+          </div>
+          <div class="row contactCol mt-3">
+            <img src="../images/phoneIcon.png" class="contactIcon">
+            <p class="fs-5 contactText"><a href="tel:+37378314855"> +373 783 148 55 </a></p>
+          </div>
+          <div class="row contactCol mt-3">
+            <img src="../images/instagramIcon.png" class="contactIcon">
+            <p class="fs-5 contactText"><a href="https://www.instagram.com/blue_triangle_studio/?igshid=Yzg5MTU1MDY%3D" target="_blank">@burgeratory</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--блок изменения языка на румынский (работа в прогрессе)-->
+    <button id="languageRo">
+      Ro  
+    </button>
+    <!--создаём нижнюю панель сайта-->
+    <div id="footer">
+      <span class="navbar-text fs-5">Copyright 2024. All rights reserved. <p class="fs-5">Данный веб-сайт был выполнен в рамках конкурса "Юные послы Теквилл", организованного проектом "Теквилл в каждой школе" и не обязательно отражает мнение проекта.</p></span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="../js/MobileAdaptation.js"></script>
+</body>
+</html>

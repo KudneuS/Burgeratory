@@ -1,0 +1,1015 @@
+@font-face {font-family: "Montserrat"; src: url("../fonts/Montserrat.ttf")}
+@font-face {font-family: "Satisfy"; src: url("../fonts/Satisfy-Regular.ttf")}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("../images/mainBG.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 110vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+#languageRo{
+    position: fixed;
+    right: 2%;
+    bottom: 4%;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    font-weight: 900;
+    background-color: rgb(209, 221, 221);
+    border-radius: 100%;
+}
+
+#header {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 9vh;
+    background-color: #3e5270;
+    border-bottom: 1vh #222a31 solid;
+    font-family: 'Century Gothic', monospace;
+    font-weight: 900;
+    font-size: 3vh;
+}
+
+.navbar{
+    padding: 0;
+}
+
+nav{
+    width: 100%;
+    height: 100%;
+}
+
+#offcanvasMenu{
+    position: absolute;
+    width: auto;
+    height: 70%;
+    top: 15%;
+    right: 2%;
+}
+
+#mainMenuBanner{
+    position: relative;
+    display: flex;
+    background-image: url("../images/banner01.png");
+    height: 10vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#leftBannerList, #rightBannerList{
+    width: 30%;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2.5%;
+}
+
+#leftBannerList{
+    position: absolute;
+    left: 5%;
+}
+
+#rightBannerList{
+    position: absolute;
+    right: 5%;
+}
+
+#mainBannerText{
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: fit-content;
+    pointer-events: none;
+    top: 51%;
+    font-weight: 900;
+    font-size: 2.8vw;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    transition: color ease-in-out 0.2s;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: chocolate;
+    transition: color ease-in-out 0.2s;
+}
+
+a:active {
+    color: #67c8f9;
+    transition: color ease-in-out 0.2s;
+}
+
+.navElement {
+    margin: 0 1%;
+    width: 17vw;
+    height: 2em;
+}
+
+.navElementMain{
+    margin: 0 1%;
+    width: 20vw;
+    height: 2em;
+}
+
+#activePage{
+    cursor: initial;
+}
+
+button{
+    width: 100%;
+    height: 100%;
+    padding: 0 calc(-2vh + 2.7vw);
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    font-weight: 500;
+    transition: color ease-in-out 0.2s;
+    background: none;
+    border: none;
+}
+button:hover, #activePage{
+    color: azure;
+    transition: color ease-in-out 0.2s;
+}
+
+.btn{
+    padding: 0.325vh 1.3vw;
+}
+
+#menuIconButton{
+    width: 5vh;
+    height: 5vh;
+}
+
+ul {
+    display: flex;
+    justify-content: left;
+    list-style-type: none;
+    text-align: center;
+    margin-top: 0%;
+    height: 100%;
+    padding-inline-start: 0;
+}
+
+#logo{
+    width: 8vh;
+    margin-bottom: 0.5vh;
+}
+#logoMobile{
+    height: 90%;
+    position: absolute;
+    left: 2%;
+    top: 2%;
+}
+
+.navbar-text{
+    font-size: calc(-0.5vh + 3vw);
+    font-weight: 1000;
+    color: azure;
+}
+
+#title{
+    position: absolute;
+    display: flex;
+    color: azure;
+    width: 100%;
+    height: 100%;
+    font-family: "Satisfy", Display, sans-serif;
+    align-items: center;
+    justify-content: center;
+    word-spacing: 10px;
+    font-size: 5vh;
+}
+
+#titleMobile{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-family: "Satisfy", Display, sans-serif;
+    align-items: center;
+    justify-content: center;
+    word-spacing: 1px;
+    font-size: 40px;
+}
+
+#bannerContainer{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin-top: 20vh;
+}
+#banner{
+    width: 100%;
+}
+#bannerText{
+    position: absolute;
+    top: 7.5vw;
+    text-align: center;
+    font-family: 'NovaMono', Display;
+    font-size: 5vw;
+    color: #283641;
+}
+
+#element1{
+    background-color: #f2ba62;
+    border-bottom: calc(0.1 * 11vh) #c67812 solid;
+    transition: background-color ease-in-out 0.4s, border-bottom ease-out 0.3s;
+}
+#element1:hover, #active1{
+    background-color: #c67812;
+    border-bottom: 0 transparent solid;
+    transition: background-color ease-in-out 0.3s, border-bottom ease-in 0.3s;
+}
+#element2{
+    background-color: #d86162;
+    border-bottom: calc(0.1 * 11vh) #891819 solid;
+    transition: background-color ease-in-out 0.4s, border-bottom ease-out 0.3s;
+}
+#element2:hover, #active2{
+    background-color: #891819;
+    border-bottom: 0 transparent solid;
+    transition: background-color ease-in-out 0.3s, border-bottom ease-in 0.3s;
+}
+#element3{
+    background-color: #ffe732;
+    border-bottom: calc(0.1 * 11vh) #d29c01 solid;
+    transition: background-color ease-in-out 0.4s, border-bottom ease-out 0.3s;
+}
+#element3:hover, #active3{
+    background-color: #b18111;
+    border-bottom: 0 transparent solid;
+    transition: background-color ease-in-out 0.3s, border-bottom ease-in 0.3s;
+}
+#element4{
+    background-color: #9cc762;
+    border-bottom: calc(0.1 * 11vh) #418f35 solid;
+    transition: background-color ease-in-out 0.4s, border-bottom ease-out 0.3s;
+}
+#element4:hover, #active4{
+    background-color: #418f35;
+    border-bottom: 0 transparent solid;
+    transition: background-color ease-in-out 0.3s, border-bottom ease-in 0.3s;
+}
+
+/*Content*/
+
+#carousel{
+    width: 60%;
+    margin-left: 20%;
+}
+
+.carouselTitle{
+    position: absolute;
+    text-align: center;
+    top: 7%;
+    left: 5%;
+    width: 90%;
+    font-family: 'Montserrat', Display, sans-serif;
+    font-size: calc(-1.5vh + 5.5vw);
+    font-weight: 1000;
+}
+
+.carouselContent{
+    position: absolute;
+    top: 35%;
+    left: 60%;
+    width: 30%;
+}
+
+.iconButton{
+    height: 1.5em;
+    padding: 0.5% 0;
+}
+
+
+
+#mainBurgStand{
+    position: relative;
+    height: fit-content;
+}
+
+#mainTitleBurg{
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+}
+
+#mainTitleDesc{
+    font-weight: 700;
+    margin-left: 0.5vw;
+}
+
+#mainBurgContent{
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+#mainBurgImage{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/burgBGGradient.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 2vw;
+}
+
+#mainBurgImageContainer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% -20%;
+    border-radius: inherit;
+}
+
+.burgTitle, .burgWeight, .burgPrice{
+    margin: 0;
+    font-weight: 600;
+    font-family: "Montserrat";
+}
+
+#mainBurgImageImage{
+    width: 28vw;
+}
+
+#mainPricing{
+    position: absolute;
+    top: 2%;
+    right: 4%;
+    color: azure;
+    font-weight: 500;
+    z-index: 1;
+    text-shadow: #000000 -2px 2px;
+}
+
+#mainBurgDescription{
+    position: relative;
+    padding: 1vw;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 1.5vw;
+}
+
+#description{
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+
+.burgButton{
+    background-color: azure;
+    padding: 0.2vw 0;
+    margin-top: 0.8vw;
+    border-radius: 1.5vw;
+    font-size: 0.8rem;
+}
+
+.burgButton:hover, #gotoCart:hover, .patternButton:hover, .labButton:hover, .accordion-button:hover, #languageRo:hover{
+    color: #9cc762;
+}
+
+#closeWindowMenu{
+    position: absolute;
+    width: fit-content;
+    top: -1rem;
+    right: -0.2rem;
+    font-weight: 1000;
+    background-color: azure;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    border-bottom-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+#closeWindowMenu:hover{
+    cursor: pointer;
+}
+
+#mainPatternsTitle{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 200;
+    font-family: "Satisfy";
+}
+
+.mainPreviewPattern{
+    position: relative;
+    height: fit-content;
+    font-size: 1.1rem;
+    background: none;
+    border-radius: 1em;
+    transition: background ease-in-out 0.3s;
+}
+
+.mainPreviewPattern:hover{
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background ease-in-out 0.3s;
+}
+
+.mainImagePattern{
+    width: 100%;
+    background-color: black;
+    padding-top: 1em;
+    border-radius: 1em;
+}
+
+.mainPropPattern{
+    padding-left: 1em;
+}
+
+#gotoCartContainer{
+    margin-left: 15%;
+    width: 70%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#gotoCart{
+    font-size: 2.5vw;
+    background-color: azure;
+    border-radius: 1vw;
+}
+
+#cartLink{
+    width: 60%;
+}
+
+#cartLeft{
+    float: left;
+    margin-left: 5%;
+}
+
+#cartRight{
+    float: right;
+    margin-right: 5%;
+    transform: scaleX(-1);
+}
+
+#cartContent{
+    background-image: url("../images/cartBG.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: azure;
+    border: 5px azure solid;
+}
+
+#cartTitle{
+    font-family: "Montserrat";
+    font-weight: 1000;
+}
+
+#cartFooter{
+    justify-content: space-between;
+}
+
+.cartItem{
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    font-family: "Montserrat";
+}
+
+.deleteItem{
+    position: relative;
+    width: 3vw;
+    height: 3vw;
+    background-image: url("../images/trash.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0;
+    transition: filter ease-in-out 0.3s, opacity ease-in-out 0.3s;
+}
+
+.deleteItem:hover{
+    filter: invert();
+    transition: filter ease-in-out 0.3s;
+}
+
+.cartPreview{
+    width: 30%;
+    border-radius: 1em;
+    background-color: black;
+    padding-top: 0.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.cartDescription{
+    min-width: 10vw;
+}
+
+.cartName, .cartNumber, .cartPrice, .totalCartPrice{
+    position: relative;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    height: min-content;
+}
+
+.priceIndividual, .priceTotal{
+    margin: 0;
+}
+
+.cartName{
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.burgerNumber{
+    width: 25%;
+    text-align: center;
+    padding: 0;
+    font-size: 0.8rem;
+    color: azure;
+    background: none;
+    border: none;
+    border-radius: 0.5em;
+    transition: background ease-in-out 0.3s, border ease-in-out 0.3s;
+}
+
+.burgerNumber::placeholder{
+    color: rgb(216, 216, 216);
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.addCartButton, .removeCartButton{
+    margin-bottom: 5%;
+    width: 10%;
+    height: 10%;
+    top: 10%;
+    font-size: 2rem;
+    font-weight: 900;
+    color: azure;
+    opacity: 0;
+    transition: opacity ease-in-out 0.3s, color ease-in-out 0.3s;
+}
+
+.removeCartButton{
+    margin-bottom: 6%;
+}
+
+.addCartButton:hover, .removeCartButton:hover{
+    color: black;
+    transition: color ease-in-out 0.3s;
+}
+
+.cartItem:hover .deleteItem{
+    opacity: 1;
+    transition: opacity ease-in-out 0.3s;
+}
+
+.cartItem:hover .addCartButton{
+    opacity: 1;
+    transition: opacity ease-in-out 0.3s;
+}
+
+.cartItem:hover .removeCartButton{
+    opacity: 1;
+    transition: opacity ease-in-out 0.3s;
+}
+
+.cartItem:hover .burgerNumber{
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px rgba(255, 255, 255, 0.4) solid;
+    transition: background ease-in-out 0.3s, border ease-in-out 0.3s;
+}
+
+
+
+#patternsMenu{
+    position: relative;
+    height: 28em;
+    overflow: auto;
+    background: rgba(255, 255, 255, 0.4);
+    border-right: 0.5em rgba(255, 255, 255, 0.6) solid;
+    border-top-left-radius: 2vw;
+    border-bottom-left-radius: 2vw;
+    padding-bottom: 1.5vw;
+}
+
+#patternsMenuTitle{
+    font-weight: 900;
+    text-align: center;
+    font-family: "Montserrat";
+}
+
+.pattern{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.6);
+    margin-bottom: 2%;
+}
+
+.patternIcon{
+    height: 4em;
+    background: azure;
+    border-radius: 1vw;
+    float: left;
+    margin-left: 2%;
+}
+
+.patternInfo{
+    width: 100%;
+    margin-left: 2%;
+}
+
+.patternButton{
+    position: relative;
+    background-color: azure;
+    margin: 5% 0;
+    padding: 2% 1%;
+    border-radius: 1.5vw;
+    font-size: 0.7em;
+}
+
+
+
+#ingredientsList{
+    position: relative;
+    width: auto;
+    height: 32em;
+    background-color: #5b80a5;
+    border-left: 0.5em rgba(255, 255, 255, 0.6) solid;
+    box-shadow: 5px 0 #4e6d8d;
+    border-top-right-radius: 2vw;
+    border-bottom-right-radius: 2vw;
+    z-index: 2;
+}
+
+#ingredientsFloat{
+    max-height: 73%;
+    overflow-y: auto;
+}
+
+.ingredientsTitle{
+    font-weight: 900;
+    text-align: center;
+}
+
+.ingredient{
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 2.5em;
+    width: 100%;
+    background-color: #3e5270;
+    color: azure;
+    transition: background-color ease-in-out 0.4s;
+}
+
+.ingredient:hover{
+    background-color: #5b6f8e;
+    transition: background-color ease-in-out 0.4s;
+}
+
+.ingredientTitle{
+    width: fit-content;
+    margin-left: -3rem;
+    transition: margin-left 0.4s;
+}
+
+.ingredientPricing{
+    position: absolute;
+    right: 2%;
+}
+
+.buttonBlock{
+    display: flex;
+    height: 100%;
+    translate: -100% 0;
+    transition: translate 0.4s;
+}
+
+.ingredient:hover > .buttonBlock{
+    translate: 0 0;
+    transition: translate 0.4s;
+}
+
+.ingredient:hover > .ingredientTitle{
+    margin-left: 0.5rem;
+    transition: margin-left 0.4s;
+}
+
+.ingredientButton{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 100%;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    background-color: #5b6f8e;
+    transition: background-color ease-in 0.2s;
+}
+
+.arrowIcon{
+    height: 40%;
+}
+
+.ingredientButton:hover{
+    background-color: #4e5e77;
+    transition: background-color ease-in 0.2s;
+}
+
+.ingredientButtonUp{
+    transform: scaleY(-1);
+}
+
+#labPatternsMenu{
+    position: relative;
+    height: 32em;
+    overflow: auto;
+    background-color: #5b80a5;
+    border-right: 0.5em rgba(255, 255, 255, 0.6) solid;
+    box-shadow: -5px 0 #4e6d8d;
+    border-top-left-radius: 2vw;
+    border-bottom-left-radius: 2vw;
+    padding-bottom: 1.5vw;
+}
+
+.disabled{
+    opacity: 0.2;
+}
+
+.burgInfo{
+    float: right;
+}
+
+#burgInfoBlock{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.burgInfoItem{
+    background-color: azure;
+    border-radius: 1em;
+}
+
+.labButton{
+    background-color: azure;
+    border-radius: 1em;
+}
+
+#addButton{
+    position: absolute;
+    left: 10%;
+    bottom: 3%;
+    width: 80%;
+    height: fit-content;
+}
+
+.deleteIcon{
+    height: 100%;
+    padding: 0.3rem;
+    background-color: #5b6f8e;
+    transition: background-color ease-in-out 0.2s;
+}
+
+.deleteIcon:hover{
+    cursor: pointer;
+    background-color: #455268;
+    transition: background-color ease-in-out 0.2s;
+}
+
+#burgVisualisation{
+    position: relative;
+    height: 32em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem 0;
+    align-items: center;
+}
+
+.ingredientImage{
+    position: absolute;
+    height: 20%;
+}
+
+
+.ingredientItem{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px rgb(210, 210, 210) solid;
+    border-radius: 10px;
+    opacity: 1;
+    transition: opacity ease-in-out 0.2s;
+}
+
+#ingredientsMenu{
+    position: absolute;
+    top: 0;
+    margin-left: -3rem;
+    padding-left: 2.5rem;
+    width: 90%;
+    height: 32em;
+    background-color: #49678c;
+    border-top-right-radius: 2vw;
+    border-bottom-right-radius: 2vw;
+    transition: translate 0.4s, opacity 0.3s;
+}
+
+#ingredientsLgContent{
+    overflow-y: scroll;
+    margin-top: 2%;
+    width: 100%;
+    height: 88%;
+}
+
+#closeWindow{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: 1000;
+    background-color: azure;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    border-bottom-left-radius: 1em;
+    border-top-right-radius: 2vw;
+}
+
+#closeWindow:hover{
+    cursor: pointer;
+}
+
+.ingredientItemLarge{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    background-color: #3e5270;
+    color: azure;
+    transition: color ease-in-out 0.2s, background-color ease-in-out 0.2s;
+}
+
+.ingredientItemLarge:hover{
+    background-color: azure;
+    color: #3e5270;
+    cursor: pointer;
+    transition: color ease-in-out 0.2s, background-color ease-in-out 0.2s;
+}
+
+.ingredientItem:hover{
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity ease-in-out 0.2s;
+}
+
+.ingredientItemTitle, .ingredientItemPricing{
+    font-weight: 600;
+    text-align: center;
+}
+
+.ingredientItemImage{
+    width: 100%;
+    border-top: 1px rgb(225, 225, 225) solid;
+    border-bottom: 1px rgb(225, 225, 225) solid;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+
+.infoText{
+    text-align: center;
+    font-family: "Montserrat";
+    font-weight: 900;
+}
+
+#location{
+    width: 100%;
+    height: 50vh;
+    border-radius: 0.5rem;
+}
+
+.contactIcon{
+    width: 4rem;
+}
+
+.contactCol{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    color: azure;
+    font-weight: 800;
+    margin-left: 0.9vw;
+}
+
+.contactText{
+    margin: 0;
+}
+
+
+
+#mainForm{
+    padding-left: 10vw;
+    padding-right: 2vw;
+    padding-bottom: 5rem;
+    padding-top: 2rem;
+    background-image: url("../images/formBG.png");
+    font-family: "Montserrat";
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+}
+
+#formTitle{
+    text-align: center;
+    font-weight: 900;
+}
+
+#submitButton{
+    height: 3rem;
+    border-radius: 0.5em;
+}
+
+#mainBillContent{
+    height: fit-content;
+    padding-top: 2rem;
+    margin: 2rem 5rem;
+    font-family: "Montserrat";
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 2em;
+    background-size: cover;
+}
+
+hr{
+    border: none;
+    height: 0.2rem !important;
+    background: black;
+    opacity: 1;
+    margin: 0.5rem 1rem;
+}
+
+#mainBillTitle{
+    text-align: center;
+    font-weight: 1000;
+}
+
+.billItem{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 2rem;
+}
+
+#totalPriceTitle{
+    text-align: center;
+    font-weight: 900;
+    margin: 0;
+}
+
+#totalPrice{
+    text-align: center;
+}
+
+/*footer*/
+
+#footer{
+    width: 100%;
+    padding: 0.5em;
+    background-color: #283641;
+    border-top: 10px #546576 solid;
+    color: #8d8d8d;
+    margin-top: auto;
+}
