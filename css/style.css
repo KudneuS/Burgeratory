@@ -5,14 +5,18 @@
     box-sizing: border-box;
 }
 
+html{
+    overflow-x: hidden;
+}
+
 body{
     background-image: url("../images/mainBG.png");
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 110vh;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
 }
 
 #languageRo{
@@ -23,8 +27,9 @@ body{
     height: 3rem;
     padding: 0;
     font-weight: 900;
-    background-color: rgb(209, 221, 221);
+    background-color: azure;
     border-radius: 100%;
+    border: 3px black solid
 }
 
 #header {
@@ -78,6 +83,16 @@ nav{
     background-position: center;
 }
 
+#mainMenuBannerLg{
+    position: relative;
+    display: flex;
+    background-image: url("../images/banner01.png");
+    height: 25vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 #leftBannerList, #rightBannerList{
     width: 30%;
     display: inline-flex;
@@ -105,6 +120,17 @@ nav{
     top: 51%;
     font-weight: 900;
     font-size: 2.8vw;
+}
+
+#mainBannerTextLg{
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: fit-content;
+    pointer-events: none;
+    top: 50%;
+    font-weight: 900;
+    font-size: 7vw;
 }
 
 a {
@@ -300,6 +326,10 @@ ul {
 #carousel{
     width: 60%;
     margin-left: 20%;
+}
+
+#carouselLg{
+    width: 100%;
 }
 
 .carouselTitle{
@@ -936,7 +966,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 #location{
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
     height: 50vh;
     border-radius: 0.5rem;
 }
