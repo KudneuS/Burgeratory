@@ -54,7 +54,17 @@ nav{
     position: absolute;
     width: auto;
     height: 70%;
+    aspect-ratio: 1;
     top: 15%;
+    right: 2%;
+}
+
+#offcanvasMenuMain{
+    position: absolute;
+    width: fit-content;
+    height: 35%;
+    aspect-ratio: 1;
+    top: 57%;
     right: 2%;
 }
 
@@ -160,8 +170,11 @@ button:hover, #activePage{
 }
 
 #menuIconButton{
-    width: 5vh;
-    height: 5vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    margin-bottom: 5%;
 }
 
 ul {
@@ -183,6 +196,13 @@ ul {
     position: absolute;
     left: 2%;
     top: 2%;
+}
+
+#logoMobileMain{
+    height: 40%;
+    position: absolute;
+    left: 2%;
+    top: 55%;
 }
 
 .navbar-text{
