@@ -1,4 +1,5 @@
-const billPattern = '<div class="billItem" id="cur"><div><p class="billItemTitle">машрум</p><p class="billItemCount">x1</p></div><p class="billItemPrice">60</p></div>';
+const billPattern = $("#billInfo").html();
+$("#billInfo").html("");
 var items;
 var totalPrice = 0;
 

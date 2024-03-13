@@ -1,10 +1,13 @@
-const cartPattern = '<div class="cartItem" id="cur"><button class="deleteItem"></button><img src="../images/mushroomBurg.png" class="cartPreview"><div class="cartDescription"><p class="cartName">машрум</p><div class="cartNumber">кол: <input type="number" class="burgerNumber" placeholder="1" ></div><div class="cartPrice">цена: <p class="priceIndividual">70MDL</p></div><div class="totalCartPrice">итого: <p class="priceTotal">70MDL</p></div></div><button class="addCartButton">+</button><button class="removeCartButton">-</button></div>';
+const cartPattern = $("#cartItems").html();
+const NothingHereBlock = $("#nothingHere").html();
+$("#cartItems").html("");
 const toastLiveExample = document.getElementById('cartAnnouncement');
 const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
 
 $(document).ready(function(){
     $("#cartItems").html(GetItemFromStorage("cartBurg"));
 
+    RefreshLang();
     UpdateTotalPrice();
 });
 
@@ -25,6 +28,7 @@ $("#cartItems").on("change", ".burgerNumber", function(){
     }
 
     value = parseInt($(this).val());
+    $(this).removeAttr("value").attr("value", value);
     let perPrice = $(this).parent().parent().find(".priceIndividual").text();
     $(this).parent().parent().find(".priceTotal").text((parseInt(perPrice.slice(0, perPrice.length - 3)) * value).toString() + "MDL");
 
@@ -44,6 +48,7 @@ $("#cartItems").on("click", ".addCartButton", function(){
     }
 
     value = parseInt($(this).parent().find(".burgerNumber").val());
+    $(this).parent().find(".burgerNumber").removeAttr("value").attr("value", value);
     let perPrice = $(this).parent().find(".priceIndividual").text();
     $(this).parent().find(".priceTotal").text((parseInt(perPrice.slice(0, perPrice.length - 3)) * value).toString() + "MDL");
 
@@ -63,6 +68,7 @@ $("#cartItems").on("click", ".removeCartButton", function(){
     }
 
     value = parseInt($(this).parent().find(".burgerNumber").val());
+    $(this).parent().find(".burgerNumber").removeAttr("value").attr("value", value);
     let perPrice = $(this).parent().find(".priceIndividual").text();
     $(this).parent().find(".priceTotal").text((parseInt(perPrice.slice(0, perPrice.length - 3)) * value).toString() + "MDL");
     UpdateTotalPrice();
@@ -72,6 +78,7 @@ $("#cartItems").on("click", ".deleteItem", function(){
     $(this).parent().remove();
 
     UpdateTotalPrice();
+    RefreshLang();
 });
 
 $("#patternsMenu").on("click", ".addToCart", function(){
@@ -110,6 +117,7 @@ $("#patternsMenu").on("click", ".addToCart", function(){
         }
 
         value = parseInt($(num[burgExistance]).find(".burgerNumber").val());
+        $(num[burgExistance]).find(".burgerNumber").removeAttr("value").attr("value", value);
         let perPrice = $(num[burgExistance]).find(".priceIndividual").text();
         $(num[burgExistance]).find(".priceTotal").text((parseInt(perPrice.slice(0, perPrice.length - 3)) * value).toString() + "MDL");
     }
@@ -118,10 +126,13 @@ $("#patternsMenu").on("click", ".addToCart", function(){
 });
 
 $("#mainBurgContent").on("click", ".addToCart", function(){
+    let lang = GetItemFromStorage("langBurg");
+    ChangeLang("Ru");
     let curObj = $(this).parent().parent().parent().parent();
     let burgTitle = $(curObj).find("#mainTitleBurg").text();
     let burgPrice = $(curObj).find("#mainPricing").text();
     let burgImageBuffer = $(curObj).find("#mainBurgImageContainer").attr("style");
+    ChangeLang(lang);
     
     burgImageBuffer = burgImageBuffer.split(":")[1];
     burgImage = burgImageBuffer.slice(6, burgImageBuffer.length - 3);
@@ -132,7 +143,7 @@ $("#mainBurgContent").on("click", ".addToCart", function(){
         $("#cartItems").append(cartPattern);
         let curPattern = $("#cur").removeAttr("id").attr("ingredientHash", burgHash);
     
-        $(curPattern).find(".cartName").text(burgTitle);
+        $(curPattern).find(".cartName").text(burgTitle).attr("data-trn-key", burgTitle);
         $(curPattern).find(".priceIndividual").text(burgPrice);
         $(curPattern).find(".priceTotal").text(burgPrice);
         $(curPattern).find(".cartPreview").removeAttr("src").attr("src", burgImage);
@@ -156,19 +167,27 @@ $("#mainBurgContent").on("click", ".addToCart", function(){
         }
 
         value = parseInt($(num[burgExistance]).find(".burgerNumber").val());
+        $(num[burgExistance]).find(".burgerNumber").removeAttr("value").attr("value", value);
         let perPrice = $(num[burgExistance]).find(".priceIndividual").text();
         $(num[burgExistance]).find(".priceTotal").text((parseInt(perPrice.slice(0, perPrice.length - 3)) * value).toString() + "MDL");
     }
     toastBootstrap.show();
     UpdateTotalPrice();
+    RefreshLang();
 });
 
 $("#paymentButton").on("click", function(){
+    if($(".cartName").length == 0){
+        $("#paymentButton").attr("dis", true);
+        return;
+    }
+
     let names = $(".cartName");
     let counts = $(".burgerNumber");
     let prices = $(".priceTotal");
     let i = 0;
     var items = [];
+    $("#paymentButton").removeAttr("dis");
 
     for(i; i < names.length; i++){
         if($(counts[i]).val() != ""){
@@ -180,7 +199,6 @@ $("#paymentButton").on("click", function(){
     }
 
     AddItemToStorage("checkoutList", items);
-    $(location).attr("href","../pages/checkout.html");
 });
 
 function CheckIfHashExists(hash){
@@ -206,6 +224,13 @@ function UpdateTotalPrice(){
     }
 
     $("#totalPrice").text(totalPrice + "MDL");
+    if(totalPrice != 0){
+        $("#nothingHereBlock").remove();
+    }
+    else{
+        $("#cartItems").html($(NothingHereBlock).attr("id", "nothingHereBlock"));
+    }
 
+    $("#cartCount").text(prices.length);
     AddItemToStorage("cartBurg", $("#cartItems").html());
 }

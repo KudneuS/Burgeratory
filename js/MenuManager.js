@@ -1,5 +1,7 @@
 const SelectingMenu = $("#mainBurgContent").html();
-const BigShowcaseMenu = '<div class="row position-relative h-100"><div id="mainTitleBurg" class="fs-1 ms-3 w-100">Машрум</div><div class="col-6 col-lg-8"><div id="mainBurgImage"><p id="mainPricing" class="fs-5">74MDL</p><div id="mainBurgImageContainer"></div></div></div><div class="col-6 col-lg-4"><div id="mainBurgDescription"><div id="mainTitleDesc" class="fs-2">Описание:</div><p id="description">340 гр. <br />Булочка Бриошь, котлета из выдержаннойговядины, американский Чеддер, помидоры,корнишоны, грибы демиглас, салат айсберг,луковый мармелад, фирменный соус Торро.</p><div id="burgButtons"><button class="burgButton addToCart">добавить в корзину</button><button class="burgButton" id="editPattern">редактировать шаблон</button></div></div></div><div id="closeWindowMenu" class="fs-3">x</div></div>';
+const BigShowcaseMenu = $("#descriptionTab").html();
+const NothingHereText = $("#nothingHere").html();
+$("#descriptionTab").remove();
 var timeout = 300;
 
 $(document).ready(function(){
@@ -8,15 +10,22 @@ $(document).ready(function(){
 
     $("#privatePatterns").html(GetItemFromStorage("patternsBurg"));
     $(".deleteButton").html('добавить в корзину').removeAttr("class", "deleteButton").attr("class", "patternButton addToCart");
+    
+    if($("#privatePatterns").children().length == 0){
+        $("#privatePatterns").html($(NothingHereText).attr("style", "height: 12em;"));
+    }
 });
 
 $("#mainBurgContent").on("click", ".mainPreviewPattern", function(){
+    let lang = GetItemFromStorage("langBurg");
+    ChangeLang("Ru");
     let burgImage = $(this).find(".mainImagePattern").attr("src");
     let burgTitle = $(this).find(".burgTitle").text();
     let burgWeight = $(this).find(".burgWeight").text();
     let burgPrice = $(this).find(".burgPrice").text();
     let patternHash = $(this).attr("ingredientHash");
     AddItemToStorage("lastSelectedBurg", patternHash);
+    ChangeLang(lang);
 
     AnimateMainMenuDisabled();
     
@@ -24,10 +33,12 @@ $("#mainBurgContent").on("click", ".mainPreviewPattern", function(){
         $("#mainBurgContent").removeAttr("style", "flex-direction").html(BigShowcaseMenu);
 
         $("#mainTitleBurg").html(burgTitle);
-        $("#description").html(burgWeight + "<br />" + ParsePatternHash(patternHash));
+        let desc = burgWeight + "<br />" + ParsePatternHash(patternHash);
+        $("#description").html(desc);
         $("#mainPricing").html(burgPrice);
     
         $("#mainBurgImageContainer").attr("style", "background-image: url('" + burgImage + "');");
+        RefreshLang();
 
         AnimateMainMenuEnabled();
     }, timeout);
@@ -38,6 +49,8 @@ $("#mainBurgContent").on("click", "#closeWindowMenu", function(){
 
     setTimeout(function(){
         $("#mainBurgContent").attr("style", "background: none; padding-top: 0 !important; padding-bottom: 0 !important; flex-direction: row !important;").html(SelectingMenu);
+        
+        RefreshLang();
         AnimateMainMenuEnabled();
     }, timeout);
 });
@@ -56,23 +69,24 @@ $("#patternsMenu").on("click", ".loadPattern", function(){
         $("#mainBurgContent").removeAttr("style").html(BigShowcaseMenu);
 
         $("#mainTitleBurg").html(burgTitle);
-        $("#description").html(burgWeight + "<br />" + ParsePatternHash(patternHash));
+        let desc = burgWeight + "<br />" + ParsePatternHash(patternHash);
+        $("#description").html(desc);
         $("#mainPricing").html(burgPrice);
     
         $("#mainBurgImageContainer").attr("style", "background-image: url('" + burgImage + "');");
 
+        RefreshLang();
         AnimateMainMenuEnabled();
     }, timeout);
 });
 
 $("#mainBurgContent").on("click", "#editPattern", function(){
     AddItemToStorage("editPatternBurg", true);
-    $(location).attr("href","../pages/lab.html");
 });
 
 function ParsePatternHash(patternHash){
     console.log(patternHash);
-    let ingredients = "булочка Бриошь, ";
+    let ingredients = "<div class='trn d-inline'>булочка Бриошь</div>, ";
     let prevIngredients = "";
     let i = 0;
     var ingredientsList = patternHash.split(".");
@@ -80,103 +94,103 @@ function ParsePatternHash(patternHash){
     for(i; i < ingredientsList.length; i++){
         switch(parseInt(ingredientsList[i])){
             case 2:
-                if(!ingredients.includes("котлета из выдержанной говядины")){
-                    ingredients += "котлета из выдержанной говядины";
+                if(!ingredients.includes("<div class='trn d-inline'>котлета из выдержанной говядины</div>")){
+                    ingredients += "<div class='trn d-inline'>котлета из выдержанной говядины</div>";
                 }
                 break;
             case 3:
-                if(!ingredients.includes("салат айсберг")){
-                    ingredients += "салат айсберг";
+                if(!ingredients.includes("<div class='trn d-inline'>салат айсберг</div>")){
+                    ingredients += "<div class='trn d-inline'>салат айсберг</div>";
                 }
                 break;
             case 4:
-                if(!ingredients.includes("американский Чеддер")){
-                    ingredients += "американский Чеддер";
+                if(!ingredients.includes("<div class='trn d-inline'>американский Чеддер</div>")){
+                    ingredients += "<div class='trn d-inline'>американский Чеддер</div>";
                 }
                 break;
             case 5:
-                if(!ingredients.includes("помидоры")){
-                    ingredients += "помидоры";
+                if(!ingredients.includes("<div class='trn d-inline'>помидоры</div>")){
+                    ingredients += "<div class='trn d-inline'>помидоры</div>";
                 }
                 break;
             case 6:
-                if(!ingredients.includes("корнишоны")){
-                    ingredients += "корнишоны";
+                if(!ingredients.includes("<div class='trn d-inline'>корнишоны</div>")){
+                    ingredients += "<div class='trn d-inline'>солёные огурцы</div>";
                 }
                 break;
             case 7:
-                if(!ingredients.includes("свежие огурцы")){
-                    ingredients += "свежие огурцы";
+                if(!ingredients.includes("<div class='trn d-inline'>свежие огурцы</div>")){
+                    ingredients += "<div class='trn d-inline'>свежие огурцы</div>";
                 }
                 break;
             case 8:
-                if(!ingredients.includes("кетчуп")){
-                    ingredients += "кетчуп";
+                if(!ingredients.includes("<div class='trn d-inline'>кетчуп</div>")){
+                    ingredients += "<div class='trn d-inline'>кетчуп</div>";
                 }
                 break;
             case 9:
-                if(!ingredients.includes("лук")){
-                    ingredients += "лук";
+                if(!ingredients.includes("<div class='trn d-inline'>лук</div>")){
+                    ingredients += "<div class='trn d-inline'>лук</div>";
                 }
                 break;
             case 10:
-                if(!ingredients.includes("бекон")){
-                    ingredients += "бекон";
+                if(!ingredients.includes("<div class='trn d-inline'>бекон</div>")){
+                    ingredients += "<div class='trn d-inline'>бекон</div>";
                 }
                 break;
             case 11:
-                if(!ingredients.includes("майонез")){
-                    ingredients += "майонез";
+                if(!ingredients.includes("<div class='trn d-inline'>майонез</div>")){
+                    ingredients += "<div class='trn d-inline'>майонез</div>";
                 }
                 break;
             case 12:
-                if(!ingredients.includes("горчица")){
-                    ingredients += "горчица";
+                if(!ingredients.includes("<div class='trn d-inline'>горчица</div>")){
+                    ingredients += "<div class='trn d-inline'>горчица</div>";
                 }
                 break;
             case 13:
-                if(!ingredients.includes("перец")){
-                    ingredients += "перец";
+                if(!ingredients.includes("<div class='trn d-inline'>перец</div>")){
+                    ingredients += "<div class='trn d-inline'>перец</div>";
                 }
                 break;
             case 14:
-                if(!ingredients.includes("халапеньо")){
-                    ingredients += "халапеньо";
+                if(!ingredients.includes("<div class='trn d-inline'>халапеньо</div>")){
+                    ingredients += "<div class='trn d-inline'>халапеньо</div>";
                 }
                 break;
             case 15:
-                if(!ingredients.includes("яйцо")){
-                    ingredients += "яйцо";
+                if(!ingredients.includes("<div class='trn d-inline'>яйцо</div>")){
+                    ingredients += "<div class='trn d-inline'>яйцо</div>";
                 }
                 break;
             case 16:
-                if(!ingredients.includes("рукола")){
-                    ingredients += "рукола";
+                if(!ingredients.includes("<div class='trn d-inline'>рукола</div>")){
+                    ingredients += "<div class='trn d-inline'>рукола</div>";
                 }
                 break;
             case 17:
-                if(!ingredients.includes("шпинат")){
-                    ingredients += "шпинат";
+                if(!ingredients.includes("<div class='trn d-inline'>шпинат</div>")){
+                    ingredients += "<div class='trn d-inline'>шпинат</div>";
                 }
                 break;
             case 18:
-                if(!ingredients.includes("грибы")){
-                    ingredients += "грибы";
+                if(!ingredients.includes("<div class='trn d-inline'>грибы</div>")){
+                    ingredients += "<div class='trn d-inline'>грибы</div>";
                 }
                 break;
             case 19:
-                if(!ingredients.includes("рыбный стейк")){
-                    ingredients += "рыбный стейк";
+                if(!ingredients.includes("<div class='trn d-inline'>рыбный стейк</div>")){
+                    ingredients += "<div class='trn d-inline'>рыбный стейк</div>";
                 }
                 break;
             case 20:
-                if(!ingredients.includes("салями")){
-                    ingredients += "салями";
+                if(!ingredients.includes("<div class='trn d-inline'>салями</div>")){
+                    ingredients += "<div class='trn d-inline'>салями</div>";
                 }
                 break;
             case 21:
-                if(!ingredients.includes("куриный стейк")){
-                    ingredients += "куриный стейк";
+                if(!ingredients.includes("<div class='trn d-inline'>куриный стейк</div>")){
+                    ingredients += "<div class='trn d-inline'>куриный стейк</div>";
                 }
                 break;
         }
@@ -193,7 +207,6 @@ function ParsePatternHash(patternHash){
 
         prevIngredients = ingredients;
     }
-
     return ingredients;
 }
 

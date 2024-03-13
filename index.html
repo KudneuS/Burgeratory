@@ -7,23 +7,23 @@
     <meta http-equiv="autor" content="Це всё наше">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="icon" href="images/logo.png" type="image/x-icon" />
+    <link rel="icon" href="images/logo2.png" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <title>Burgeratory</title>
 <body>
     <!--создаём блок мобильной менюшки-->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" >
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Burgeratory</h5>
+          <h5 class="offcanvas-title fs-2" id="offcanvasExampleLabel">Burgeratory</h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasExample" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
           <div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><b><u>главная</u></b></li>
-              <li class="list-group-item"><a href="pages/menu.html">заказать</a></li>
-              <li class="list-group-item"><a href="pages/lab.html">лаборатория</a></li>
-              <li class="list-group-item"><a href="pages/info.html">информация</a></li>
+              <li id="active1" class="list-group-item navElementMain fs-3 mb-3 pb-5 w-100"><button id="activePage"><u class="trn">главная</u></button></li>
+              <li id="element2" class="list-group-item navElementMain fs-3 mb-3 pb-5 w-100"><a href="pages/menu.html"><button class="trn">заказать</button></a></li>
+              <li id="element3" class="list-group-item navElementMain fs-3 mb-3 pb-5 w-100"><a href="pages/lab.html"><button class="trn">лаборатория</button></a></li>
+              <li id="element4" class="list-group-item navElementMain fs-3 mb-3 pb-5 w-100"><a href="pages/info.html"><button class="trn">информация</button></a></li>
             </ul>
           </div>
         </div>
@@ -32,13 +32,13 @@
     <!--создаём блок основной менюшки-->
     <div id="mainMenuBanner" class="mt-2 fs-5 d-none d-lg-flex">
       <ul id="leftBannerList" class="d-none d-lg-flex">
-        <li id="active1" class="navElementMain"><button id="activePage"><u>главная</u></button></li>
-        <li id="element2" class="navElementMain"><a href="pages/menu.html"><button>заказать</button></a></li>
+        <li id="active1" class="navElementMain"><button id="activePage"><u class="trn">главная</u></button></li>
+        <li id="element2" class="navElementMain"><button iptl="../pages/menu.html" class="transitionButton trn">заказать</button></li>
       </ul>
         <div id="mainBannerText">Burgeratory</div>
       <ul id="rightBannerList" class="d-none d-lg-flex">
-        <li id="element3" class="navElementMain"><a href="pages/lab.html"><button>лаборатория</button></a></li>
-        <li id="element4" class="navElementMain"><a href="pages/info.html"><button>информация</button></a></li>
+        <li id="element3" class="navElementMain"><button iptl="../pages/lab.html" class="transitionButton trn">лаборатория</button></li>
+        <li id="element4" class="navElementMain"><button iptl="../pages/info.html" class="transitionButton trn">информация</button></li>
       </ul>
     </div>
 
@@ -90,25 +90,75 @@
           </div>
 
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselLg" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselLg" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </button>
       </div>
     </div>
 
-    <!--блок изменения языка на румынский (работа в прогрессе)-->
-    <button id="languageRo">
-      Ro  
-    </button>
+    <!--создаём блок изменения языка-->
+    <div class="btn-group dropstart">
+      <button type="button" id="languageRo" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="images/lang.png" id="languageIcon">
+      </button>
+      <ul class="dropdown-menu languageChangeMenu ps-2">
+        <li><a class="dropdown-item languageChange" lan="Ru">ru</a></li>
+        <li><a class="dropdown-item languageChange" lan="Ro">ro</a></li>
+        <li><a class="dropdown-item languageChange" lan="En">en</a></li>
+      </ul>
+    </div>
+
+    <!--блоки анимации перехода между страницами-->
+    <div id="rightSlideAnimFore" class="d-none d-lg-block"></div>
+    <div id="rightSlideAnimBack" class="d-none d-lg-block"></div>
+
+    <div id="leftSlideAnimFore" class="d-none d-lg-block"></div>
+    <div id="leftSlideAnimBack" class="d-none d-lg-block"></div>
+
     <!--создаём нижнюю панель сайта-->
     <div id="footer">
-      <span class="navbar-text fs-5">Copyright 2024. All rights reserved. <p class="fs-5">Данный веб-сайт был выполнен в рамках конкурса "Юные послы Теквилл", организованного проектом "Теквилл в каждой школе" и не обязательно отражает мнение проекта.</p></span>
+      <div class="row">
+        <p>Copyright 2024. All rights reserved. </p>
+      </div>
+      <div class="row flex-nowrap">
+        <div class="col">
+          <div class="footerTitle mb-2 trn">контакты</div>
+          <div class="row footerCol">
+            <p class="footerText"><a href="mailto:burgercraft2@gmail.com" class="footerLink"><img src="../images/mailIcon.png" class="footerIcon d-none d-sm-inline"> burgeratory@gmail.com</a></p>
+          </div>
+          <div class="row footerCol mt-2">
+            <p class="footerText"><a href="tel:+37378314855" class="footerLink"><img src="../images/phoneIcon.png" class="footerIcon d-none d-sm-inline"> +373 783 148 55 </a></p>
+          </div>
+          <div class="row footerCol mt-2">
+            <p class="footerText"><a href="https://www.instagram.com/blue_triangle_studio/?igshid=Yzg5MTU1MDY%3D" target="_blank" class="footerLink"><img src="../images/instagramIcon.png" class="footerIcon d-none d-sm-inline"> @burgeratory</a></p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="footerTitle mb-2 trn">язык</div>
+          <div class="row footerCol">
+            <p class="footerText"><a class="footerLink languageChange" lan="Ru">русский</a></p>
+          </div>
+          <div class="row footerCol mt-2">
+            <p class="footerText"><a class="footerLink languageChange" lan="Ro">română</a></p>
+          </div>
+          <div class="row footerCol mt-2">
+            <p class="footerText"><a class="footerLink languageChange" lan="En">english</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <p class="trn">Данный веб-сайт был выполнен в рамках конкурса "Юные послы Теквилл", организованного проектом "Теквилл в каждой школе" и не обязательно отражает мнение проекта.</p>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="js/jquery.translate.js"></script>
+    <script src="js/StorageManager.js"></script>
+    <script src="js/LanguageControl.js"></script>
+    <script src="js/TransitionAnimationController.js"></script>
 </body>
 </html>

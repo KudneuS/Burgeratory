@@ -7,7 +7,7 @@
     <meta http-equiv="autor" content="Це всё наше">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="icon" href="../images/logo.png" type="image/x-icon" />
+    <link rel="icon" href="../images/logo2.png" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <title>Burgeratory</title>
 </head>
@@ -20,10 +20,10 @@
           <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarText">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li id="element1" class="navElement"><a href="../index.html"><button>главная</button></a></li>
-                <li id="active2" class="navElement"><button id="activePage"><u>заказать</u></button></li>
-                <li id="element3" class="navElement"><a href="lab.html"><button>лаборатория</button></a></li>
-                <li id="element4" class="navElement"><a href="info.html"><button>информация</button></a></li>
+                <li id="element1" class="navElement"><button iptl="../index.html" class="transitionButton trn">главная</button></li>
+                <li id="active2" class="navElement"><button id="activePage"><u class="trn">заказать</u></button></li>
+                <li id="element3" class="navElement"><button iptl="../pages/lab.html" class="transitionButton trn">лаборатория</button></li>
+                <li id="element4" class="navElement"><button iptl="../pages/info.html" class="transitionButton trn">информация</button></li>
               </ul>
               <span class="navbar-text">
                 Burgeratory
@@ -39,16 +39,16 @@
     <!--создаём блок мобильной менюшки-->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" >
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Burgeratory</h5>
+          <h5 class="offcanvas-title fs-2" id="offcanvasExampleLabel">Burgeratory</h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasExample" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
           <div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><a href="../index.html">главная</a></li>
-              <li class="list-group-item"><b><u>заказать</u></b></li>
-              <li class="list-group-item"><a href="lab.html">лаборатория</a></li>
-              <li class="list-group-item"><a href="info.html">информация</a></li>
+              <li id="element1" class="list-group-item navElementMain fs-3 mb-3 pb-5 w-100"><a href="../index.html"><button class="trn">главная</button></a></li>
+              <li id="active2" class="list-group-item navElementMain fs-3 mb-3 pb-5 w-100"><button id="activePage"><u class="trn">заказать</u></button></li>
+              <li id="element3" class="list-group-item navElementMain fs-3 mb-3 pb-5 w-100"><a href="lab.html"><button class="trn">лаборатория</button></a></li>
+              <li id="element4" class="list-group-item navElementMain fs-3 mb-3 pb-5 w-100"><a href="info.html"><button class="trn">информация</button></a></li>
             </ul>
           </div>
         </div>
@@ -56,16 +56,18 @@
     
     <br /><br /><br /><br />
     <!--создаём блок основы для всего контента в блоке-->
-    <div id="mainBurgContainer" class="container-xl my-3">
+    <div id="mainBurgContainer" class="container-xl my-3 mb-5">
       <div class="row position-relative">
         <div id="mainBurgContent" class="col-lg-8 p-3" style="background: none; padding-top: 0 !important; padding-bottom: 0 !important; flex-direction: row !important;">
-          <div class="row mb-3">
-            <div id="mainPatternsTitle">BURGERS</div>
+          <!--компютерная версия-->
+          <div id="mainPatternsTitle">BURGERS</div>
+          <div class="row mb-3 d-none d-md-flex">
+
             <div class="col mainPreviewPattern" ingredientHash="11.3.5.4.2.18.9">
               <img src="../images/mushroomBurg.png" class="mainImagePattern">
               <div class="mainPropPattern">
-                <p class="burgTitle">машрумбургер</p>
-                <p class="burgWeight">265г</p>
+                <p class="burgTitle trn">машрумбургер</p>
+                <p class="burgWeight">265g</p>
                 <p class="burgPrice">55MDL</p>
               </div>
             </div>
@@ -73,8 +75,8 @@
             <div class="col mainPreviewPattern" ingredientHash="11.9.5.10.4.2.4.2.9">
               <img src="../images/meatyMeat.png" class="mainImagePattern">
               <div class="mainPropPattern">
-                <p class="burgTitle">мясбургер</p>
-                <p class="burgWeight">470г</p>
+                <p class="burgTitle trn">мясбургер</p>
+                <p class="burgWeight">470g</p>
                 <p class="burgPrice">90MDL</p>
               </div>
             </div>
@@ -82,8 +84,8 @@
             <div class="col mainPreviewPattern" ingredientHash="9.7.12.21.5.16.12">
               <img src="../images/chickenBurg.png" class="mainImagePattern">
               <div class="mainPropPattern">
-                <p class="burgTitle">чикенбургер</p>
-                <p class="burgWeight">251г</p>
+                <p class="burgTitle trn">чикенбургер</p>
+                <p class="burgWeight">251g</p>
                 <p class="burgPrice">64MDL</p>
               </div>
             </div>
@@ -91,18 +93,21 @@
             <div class="col mainPreviewPattern" ingredientHash="11.9.6.5.2.3.11">
               <img src="../images/burgerator.png" class="mainImagePattern">
               <div class="mainPropPattern">
-                <p class="burgTitle">бургератор</p>
-                <p class="burgWeight">259г</p>
+                <p class="burgTitle trn">бургератор</p>
+                <p class="burgWeight">259g</p>
                 <p class="burgPrice">47MDL</p>
               </div>
             </div>
+
           </div>
-          <div class="row">
+
+          <div class="row d-none d-md-flex">
+
             <div class="col mainPreviewPattern" ingredientHash="11.9.6.13.4.2.6.3.11">
               <img src="../images/pickleBurg.png" class="mainImagePattern">
               <div class="mainPropPattern">
-                <p class="burgTitle">пиклзбургер</p>
-                <p class="burgWeight">270г</p>
+                <p class="burgTitle trn">пиклзбургер</p>
+                <p class="burgWeight">270g</p>
                 <p class="burgPrice">57MDL</p>
               </div>
             </div>
@@ -110,8 +115,8 @@
             <div class="col mainPreviewPattern" ingredientHash="12.6.5.9.14.2.3.12">
               <img src="../images/DonMarmelade.png" class="mainImagePattern">
               <div class="mainPropPattern">
-                <p class="burgTitle">дон эль халапенио</p>
-                <p class="burgWeight">265г</p>
+                <p class="burgTitle trn">дон эль халапенио</p>
+                <p class="burgWeight">265g</p>
                 <p class="burgPrice">49MDL</p>
               </div>
             </div>
@@ -119,8 +124,8 @@
             <div class="col mainPreviewPattern" ingredientHash="11.16.9.10.13.11.2.9">
               <img src="../images/neverland.png" class="mainImagePattern">
               <div class="mainPropPattern">
-                <p class="burgTitle">нэверлэнд</p>
-                <p class="burgWeight">270г</p>
+                <p class="burgTitle trn">нэверлэнд</p>
+                <p class="burgWeight">270g</p>
                 <p class="burgPrice">69MDL</p>
               </div>
             </div>
@@ -128,19 +133,108 @@
             <div class="col mainPreviewPattern" ingredientHash="9.12.5.7.19.3">
               <img src="../images/fishBurg.png" class="mainImagePattern">
               <div class="mainPropPattern">
-                <p class="burgTitle">фишбургер</p>
-                <p class="burgWeight">236г</p>
+                <p class="burgTitle trn">фишбургер</p>
+                <p class="burgWeight">236g</p>
                 <p class="burgPrice">93MDL</p>
               </div>
             </div>
+
           </div>
+
+          <!--мобильная версия-->
+          <div class="row mb-3 d-md-none">
+            
+            <div class="col mainPreviewPattern" ingredientHash="11.3.5.4.2.18.9">
+              <img src="../images/mushroomBurg.png" class="mainImagePattern">
+              <div class="mainPropPattern">
+                <p class="burgTitle trn">машрумбургер</p>
+                <p class="burgWeight">265g</p>
+                <p class="burgPrice">55MDL</p>
+              </div>
+            </div>
+
+            <div class="col mainPreviewPattern" ingredientHash="11.9.5.10.4.2.4.2.9">
+              <img src="../images/meatyMeat.png" class="mainImagePattern">
+              <div class="mainPropPattern">
+                <p class="burgTitle trn">мясбургер</p>
+                <p class="burgWeight">470g</p>
+                <p class="burgPrice">90MDL</p>
+              </div>
+            </div>
+          
+          </div>
+          <div class="row mb-3 d-md-none">
+
+            <div class="col mainPreviewPattern" ingredientHash="9.7.12.21.5.16.12">
+              <img src="../images/chickenBurg.png" class="mainImagePattern">
+              <div class="mainPropPattern">
+                <p class="burgTitle trn">чикенбургер</p>
+                <p class="burgWeight">251g</p>
+                <p class="burgPrice">64MDL</p>
+              </div>
+            </div>
+
+            <div class="col mainPreviewPattern" ingredientHash="11.9.6.5.2.3.11">
+              <img src="../images/burgerator.png" class="mainImagePattern">
+              <div class="mainPropPattern">
+                <p class="burgTitle trn">бургератор</p>
+                <p class="burgWeight">259g</p>
+                <p class="burgPrice">47MDL</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row mb-3 d-md-none">
+
+            <div class="col mainPreviewPattern" ingredientHash="11.9.6.13.4.2.6.3.11">
+              <img src="../images/pickleBurg.png" class="mainImagePattern">
+              <div class="mainPropPattern">
+                <p class="burgTitle trn">пиклзбургер</p>
+                <p class="burgWeight">270g</p>
+                <p class="burgPrice">57MDL</p>
+              </div>
+            </div>
+
+            <div class="col mainPreviewPattern" ingredientHash="12.6.5.9.14.2.3.12">
+              <img src="../images/DonMarmelade.png" class="mainImagePattern">
+              <div class="mainPropPattern">
+                <p class="burgTitle trn">дон эль халапенио</p>
+                <p class="burgWeight">265g</p>
+                <p class="burgPrice">49MDL</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="row mb-3 d-md-none">
+
+            <div class="col mainPreviewPattern" ingredientHash="11.16.9.10.13.11.2.9">
+              <img src="../images/neverland.png" class="mainImagePattern">
+              <div class="mainPropPattern">
+                <p class="burgTitle trn">нэверлэнд</p>
+                <p class="burgWeight">270g</p>
+                <p class="burgPrice">69MDL</p>
+              </div>
+            </div>
+
+            <div class="col mainPreviewPattern" ingredientHash="9.12.5.7.19.3">
+              <img src="../images/fishBurg.png" class="mainImagePattern">
+              <div class="mainPropPattern">
+                <p class="burgTitle trn">фишбургер</p>
+                <p class="burgWeight">236g</p>
+                <p class="burgPrice">93MDL</p>
+              </div>
+            </div>
+
+          </div>
+
         </div>
         <!--Гениальный костыль-->
         <div class="d-lg-none"><br /></div>
 
         <div class="col-lg d-lg-flex justify-content-center align-items-start" style="margin: 0;">
           <div id="patternsMenu" class="w-100">
-            <div id="patternsMenuTitle" class="fs-3">шаблоны:</div>
+            <div id="patternsMenuTitle" class="fs-3 trn">шаблоны:</div>
             <div id="privatePatterns">
 
               <div class="pattern py-1">
@@ -151,8 +245,8 @@
                   <p class="burgPrice">70MDL</p>
                 </div>
                 <div class="me-2">
-                  <button class="patternButton addToCart">добавить в корзину</button>
-                  <button class="patternButton">выбрать шаблон</button>
+                  <button class="patternButton addToCart trn">добавить в корзину</button>
+                  <button class="patternButton trn">выбрать шаблон</button>
                 </div>
               </div>
 
@@ -161,37 +255,71 @@
         </div>
       </div>
     </div>
-    <!--создаём кнопку перехода в корзину-->
-    <div id="gotoCartContainer" class="mb-3">
-      <a id="cartLink" data-bs-toggle="modal" data-bs-target="#cartModal"><button id="gotoCart"><img src="../images/cartIcon.png" class="iconButton" id="cartLeft">перейти в корзину<img src="../images/cartIcon.png" class="iconButton" id="cartRight"></button></a>
+
+    <div id="nothingHere" class="hidden">
+      <div class="nothingHereText fs-3 my-3 trn">здесь пока ничего нет.</div>
+    </div>
+    <!--окно описания-->
+    <div id="descriptionTab">
+      <div class="row position-relative h-100">
+        <div id="mainTitleBurg" class="fs-1 ms-3 w-100 trn">Машрум</div>
+        <div class="col-6 col-lg-8">
+          <div id="mainBurgImage">
+            <p id="mainPricing" class="fs-5">74MDL</p>
+            <div id="mainBurgImageContainer"></div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-4">
+          <div id="mainBurgDescription">
+            <div id="mainTitleDesc" class="fs-2 trn">Описание:</div>
+            <p id="description">340 гр. <br />Булочка Бриошь, котлета из выдержаннойговядины, американский Чеддер, помидоры,корнишоны, грибы демиглас, салат айсберг,луковый мармелад, фирменный соус Торро.</p>
+            <div id="burgButtons">
+              <button class="burgButton addToCart trn">добавить в корзину</button>
+              <button class="burgButton transitionButton trn" id="editPattern" iptl="../pages/lab.html">редактировать шаблон</button>
+            </div>
+          </div>
+        </div>
+        <div id="closeWindowMenu" class="fs-3">x</div>
+      </div>
     </div>
 
-    <!--Окно корзины названия-->
+    <!--создаём кнопку перехода в корзину-->
+    <div id="gotoCartContainer" class="mb-3 d-none d-md-block">
+      <a id="cartLink" data-bs-toggle="modal" data-bs-target="#cartModal"><button id="gotoCart"><img src="../images/cartIcon.png" class="iconButton" id="cartLeft"><div class="trn d-inline">перейти в корзину</div><img src="../images/cartIcon.png" class="iconButton" id="cartRight"></button></a>
+      
+    </div>
+
+    <div id="gotoCartIcon" class="d-md-none">
+      <a id="cartLink" data-bs-toggle="modal" data-bs-target="#cartModal"><img src="../images/cartIcon.png" id="cartButton"></a>
+    </div>
+    <div id="cartCount" class="d-md-none">3</div>
+
+    <!--Окно корзины-->
     <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content" id="cartContent">
           <div class="modal-header" id="cartTitle">
-            <h1 class="modal-title fs-2" id="cartModalLabel">ВАША КОРЗИНА</h1>
+            <h1 class="modal-title fs-2 trn" id="cartModalLabel">ВАША КОРЗИНА</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" id="cartItems">
-            <div class="cartItem">
+            <div class="cartItem" id="cur">
               <button class="deleteItem"></button>
               <img src="../images/mushroomBurg.png" class="cartPreview">
               <div class="cartDescription">
-                <p class="cartName">машрум</p>
-                <div class="cartNumber">кол: <input type="number" class="burgerNumber" placeholder="1" ></div>
-                <div class="cartPrice">цена: <p class="priceIndividual">70MDL</p></div>
-                <div class="totalCartPrice">итого: <p class="priceTotal">70MDL</p></div>
+                <p class="cartName trn">машрум</p>
+                <div class="cartNumber"><div class="trn">кол:</div> <input type="number" class="burgerNumber" value="1" ></div>
+                <div class="cartPrice"><div class="trn">цена:</div> <p class="priceIndividual">70MDL</p></div>
+                <div class="totalCartPrice"><div class="trn">итого:</div> <p class="priceTotal">70MDL</p></div>
               </div>
               <button class="addCartButton">+</button>
               <button class="removeCartButton">-</button>
             </div>
           </div>
           <div class="modal-footer" id="cartFooter">
-            <p class="fs-3">ИТОГО</p>
+            <p class="fs-3 trn">ИТОГО</p>
             <p id="totalPrice" class="fs-3">380MDL</p>
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="paymentButton">к оплате</button>
+            <button type="button" class="btn btn-primary transitionButton trn" data-bs-dismiss="modal" id="paymentButton" iptl="../pages/checkout.html">к оплате</button>
           </div>
         </div>
       </div>
@@ -202,29 +330,75 @@
       <div id="cartAnnouncement" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
           <strong class="me-auto">Burgeratory</strong>
-          <small>сейчас</small>
+          <small class="trn">сейчас</small>
           <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
-        <div class="toast-body">
-          шаблон был успешно добавлен в корзину.
-        </div>
+        <div class="toast-body trn">шаблон был успешно добавлен в корзину.</div>
       </div>
     </div>
 
-    <!--блок изменения языка на румынский (работа в прогрессе)-->
-    <button id="languageRo">
-      Ro  
-    </button>
+    <!--создаём блок изменения языка-->
+    <div class="btn-group dropstart">
+      <button type="button" id="languageRo" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="../images/lang.png" id="languageIcon">
+      </button>
+      <ul class="dropdown-menu languageChangeMenu ps-2">
+        <li><a class="dropdown-item languageChange" lan="Ru">ru</a></li>
+        <li><a class="dropdown-item languageChange" lan="Ro">ro</a></li>
+        <li><a class="dropdown-item languageChange" lan="En">en</a></li>
+      </ul>
+    </div>
+
+    <!--блоки анимации перехода между страницами-->
+    <div id="rightSlideAnimFore" class="d-none d-lg-block"></div>
+    <div id="rightSlideAnimBack" class="d-none d-lg-block"></div>
+
+    <div id="leftSlideAnimFore" class="d-none d-lg-block"></div>
+    <div id="leftSlideAnimBack" class="d-none d-lg-block"></div>
 
     <!--создаём нижнюю панель сайта-->
     <div id="footer">
-      <span class="navbar-text fs-5">Copyright 2024. All rights reserved. <p class="fs-5">Данный веб-сайт был выполнен в рамках конкурса "Юные послы Теквилл", организованного проектом "Теквилл в каждой школе" и не обязательно отражает мнение проекта.</p></span>
+      <div class="row">
+        <p>Copyright 2024. All rights reserved. </p>
+      </div>
+      <div class="row flex-nowrap">
+        <div class="col">
+          <div class="footerTitle mb-2 trn">контакты</div>
+          <div class="row footerCol">
+            <p class="footerText"><a href="mailto:burgercraft2@gmail.com" class="footerLink"><img src="../images/mailIcon.png" class="footerIcon"> burgeratory@gmail.com</a></p>
+          </div>
+          <div class="row footerCol mt-2">
+            <p class="footerText"><a href="tel:+37378314855" class="footerLink"><img src="../images/phoneIcon.png" class="footerIcon"> +373 783 148 55 </a></p>
+          </div>
+          <div class="row footerCol mt-2">
+            <p class="footerText"><a href="https://www.instagram.com/blue_triangle_studio/?igshid=Yzg5MTU1MDY%3D" target="_blank" class="footerLink"><img src="../images/instagramIcon.png" class="footerIcon"> @burgeratory</a></p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="footerTitle mb-2 trn">язык</div>
+          <div class="row footerCol">
+            <p class="footerText"><a class="footerLink languageChange" lan="Ru">русский</a></p>
+          </div>
+          <div class="row footerCol mt-2">
+            <p class="footerText"><a class="footerLink languageChange" lan="Ro">română</a></p>
+          </div>
+          <div class="row footerCol mt-2">
+            <p class="footerText"><a class="footerLink languageChange" lan="En">english</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3 mb-5">
+        <p class="trn">Данный веб-сайт был выполнен в рамках конкурса "Юные послы Теквилл", организованного проектом "Теквилл в каждой школе" и не обязательно отражает мнение проекта.</p>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="../js/MenuManager.js"></script>
     <script src="../js/StorageManager.js"></script>
+    <script src="../js/jquery.translate.js"></script>
+    <script src="../js/LanguageControl.js"></script>
     <script src="../js/CartLogic.js"></script>
+    <script src="../js/TransitionAnimationController.js"></script>
 </body>
 </html>

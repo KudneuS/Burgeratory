@@ -1,5 +1,5 @@
-@font-face {font-family: "Montserrat"; src: url("../fonts/Montserrat.ttf")}
-@font-face {font-family: "Satisfy"; src: url("../fonts/Satisfy-Regular.ttf")}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap');
 
 *{
     box-sizing: border-box;
@@ -13,10 +13,19 @@ body{
     background-image: url("../images/mainBG.png");
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 110vh;
+    min-height: 140vh;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
+}
+
+img{
+	user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 #languageRo{
@@ -29,7 +38,36 @@ body{
     font-weight: 900;
     background-color: azure;
     border-radius: 100%;
-    border: 3px black solid
+    transition: width ease-in-out 0.3s, height ease-in-out 0.3s;
+}
+
+#languageRo:hover{
+    width: 3.2rem;
+    height: 3.2rem;
+    transition: width ease-in-out 0.3s, height ease-in-out 0.3s;
+}
+
+.languageChangeMenu{
+    display: inline-flex !important;
+    height: fit-content;
+}
+
+.dropdown-menu{
+    margin-left: -100%;
+}
+
+#languageIcon{
+    width: 2rem;
+    margin-left: -20%;
+}
+
+.offcanvas{
+    background-color: #506788;
+    border-left: 15px #3e5370 solid;
+}
+
+.offcanvas-title{
+    color: azure;
 }
 
 #header {
@@ -120,6 +158,7 @@ nav{
     top: 51%;
     font-weight: 900;
     font-size: 2.8vw;
+    color: azure;
 }
 
 #mainBannerTextLg{
@@ -131,6 +170,7 @@ nav{
     top: 50%;
     font-weight: 900;
     font-size: 7vw;
+    color: azure;
 }
 
 a {
@@ -405,6 +445,7 @@ ul {
 .burgTitle, .burgWeight, .burgPrice{
     margin: 0;
     font-weight: 600;
+    font-size: calc(0.7rem + 0.3vw);
     font-family: "Montserrat";
 }
 
@@ -464,6 +505,7 @@ ul {
 }
 
 #mainPatternsTitle{
+    width: 100%;
     text-align: center;
     font-size: 3rem;
     font-weight: 200;
@@ -472,7 +514,7 @@ ul {
 
 .mainPreviewPattern{
     position: relative;
-    height: fit-content;
+    height: 100%;
     font-size: 1.1rem;
     background: none;
     border-radius: 1em;
@@ -493,21 +535,48 @@ ul {
 }
 
 .mainPropPattern{
-    padding-left: 1em;
+    padding-left: 0.5em;
 }
 
 #gotoCartContainer{
     margin-left: 15%;
+    bottom: 2%;
     width: 70%;
-    position: relative;
+    height: 3rem;
+    position: fixed;
     display: flex;
     justify-content: center;
 }
 
 #gotoCart{
-    font-size: 2.5vw;
+    font-size: 2rem;
     background-color: azure;
     border-radius: 1vw;
+}
+
+#gotoCartIcon{
+    position: fixed;
+    bottom: 4%;
+    left: 2%;
+    background-color: azure;
+    border-radius: 100%;
+}
+
+#cartCount{
+    position: fixed;
+    background-color: crimson;
+    color: azure;
+    padding: 0 0.5rem;
+    border-radius: 1rem;
+    left: 6%;
+    bottom: 8%;
+    pointer-events: none;
+}
+
+#cartButton{
+    width: 3rem;
+    aspect-ratio: 1;
+    padding: 0.5rem;
 }
 
 #cartLink{
@@ -552,8 +621,8 @@ ul {
 
 .deleteItem{
     position: relative;
-    width: 3vw;
-    height: 3vw;
+    width: calc(2rem + 1vw);
+    height: calc(2rem + 1vw);
     background-image: url("../images/trash.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -577,7 +646,7 @@ ul {
 }
 
 .cartDescription{
-    min-width: 10vw;
+    min-width: 20%;
 }
 
 .cartName, .cartNumber, .cartPrice, .totalCartPrice{
@@ -623,8 +692,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     height: 10%;
     top: 10%;
     font-size: 2rem;
-    font-weight: 900;
-    color: azure;
+    font-weight: 400;
+    color: #f0ffff;
     opacity: 0;
     transition: opacity ease-in-out 0.3s, color ease-in-out 0.3s;
 }
@@ -659,6 +728,25 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     transition: background ease-in-out 0.3s, border ease-in-out 0.3s;
 }
 
+
+.errorMessage{
+    font-size: 0.8rem;
+    font-family: "Montserrat";
+    color: red;
+}
+
+.hidden{
+    display: none;
+}
+
+.nothingHereText{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: azure;
+    font-weight: 700;
+}
 
 
 #patternsMenu{
@@ -696,17 +784,17 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .patternInfo{
-    width: 100%;
+    width: 90%;
     margin-left: 2%;
 }
 
 .patternButton{
     position: relative;
     background-color: azure;
-    margin: 5% 0;
+    margin: 2% 0;
     padding: 2% 1%;
-    border-radius: 1.5vw;
-    font-size: 0.7em;
+    border-radius: 1.5em;
+    font-size: 0.75em;
 }
 
 
@@ -786,6 +874,11 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     padding-right: 0.3rem;
     background-color: #5b6f8e;
     transition: background-color ease-in 0.2s;
+}
+
+#mainBurgVisualisation{
+    display: flex;
+    justify-content: center;
 }
 
 .arrowIcon{
@@ -870,6 +963,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .ingredientImage{
     position: absolute;
     height: 20%;
+    transition: bottom ease-in-out 300ms;
 }
 
 
@@ -946,6 +1040,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 .ingredientItemTitle, .ingredientItemPricing{
     font-weight: 600;
+    font-size: 3.5vw;
     text-align: center;
 }
 
@@ -994,8 +1089,20 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 
 #mainForm{
-    padding-left: 10vw;
+    padding-left: 11vw;
     padding-right: 2vw;
+    padding-bottom: 5rem;
+    padding-top: 2rem;
+    background-image: url("../images/formBG.png");
+    font-family: "Montserrat";
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+}
+
+#mainFormSm{
+    padding-left: 4vw;
+    padding-right: 4vw;
     padding-bottom: 5rem;
     padding-top: 2rem;
     background-image: url("../images/formBG.png");
@@ -1016,21 +1123,47 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 #mainBillContent{
+    max-width: 80%;
     height: fit-content;
-    padding-top: 2rem;
-    margin: 2rem 5rem;
+    padding: 2rem 0;
+    margin-top: 2rem;
     font-family: "Montserrat";
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 2em;
     background-size: cover;
 }
 
-hr{
-    border: none;
-    height: 0.2rem !important;
-    background: black;
-    opacity: 1;
-    margin: 0.5rem 1rem;
+#mainBillTitle, #billInfo, #totalPriceTitle{
+    background-color: #f4f4f4;
+}
+
+#totalPrice, #mainBillTitle{
+    margin: 0;
+}
+
+#billInfo{
+    padding: 1rem 0;
+    border-top: 5px black solid;
+    border-bottom: 5px black solid;
+}
+
+#topBorderCheck{
+    transform: scaleY(-1);
+    margin-bottom: -1%;
+}
+
+#bottomBorderCheck, #topBorderCheck{
+    width: 100%;
+}
+
+#bottomBorderCheck{
+    margin-top: -1%;
+}
+
+.form-label{
+    background: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    border-radius: 0.5em;
+    padding: 0.2rem;
+    margin-top: 0.2rem;
 }
 
 #mainBillTitle{
@@ -1041,7 +1174,7 @@ hr{
 .billItem{
     display: flex;
     justify-content: space-between;
-    margin: 1rem 2rem;
+    margin: 0 2rem;
 }
 
 #totalPriceTitle{
@@ -1060,7 +1193,74 @@ hr{
     width: 100%;
     padding: 0.5em;
     background-color: #283641;
-    border-top: 10px #546576 solid;
+    border-top: 5px #485460 solid;
     color: #8d8d8d;
+    font-size: 1rem;
+    font-family: "Montserrat";
     margin-top: auto;
+}
+
+.footerTitle{
+    color: azure;
+    font-weight: 500;
+    text-align: center;
+}
+
+.footerCol{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    text-align: center;
+}
+
+.footerIcon{
+    height: 1.5rem;
+    aspect-ratio: 1;
+}
+
+.footerText{
+    color: #8d8d8d !important;
+    margin: 0;
+}
+
+.footerLink, .footerLink:link{
+    color: #8d8d8d !important;
+}
+
+.footerLink:hover{
+    color: azure !important;
+}
+
+.footerLink:visited{
+    color: #8d8d8d !important;
+}
+
+/*animation shit*/
+
+#rightSlideAnimFore, #rightSlideAnimBack{
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+}
+
+#leftSlideAnimFore, #leftSlideAnimBack{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+}
+
+#rightSlideAnimFore, #leftSlideAnimFore{
+    background: rgb(157, 206, 210);
+    z-index: 10;
+    transition: all ease-in-out 0.6s;
+}
+
+#rightSlideAnimBack, #leftSlideAnimBack{
+    background: rgb(44, 44, 44);
+    z-index: 9;
+    transition: all ease-in-out 0.7s;
 }

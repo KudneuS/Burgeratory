@@ -7,7 +7,7 @@
     <meta http-equiv="autor" content="Це всё наше">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="icon" href="../images/logo.png" type="image/x-icon" />
+    <link rel="icon" href="../images/logo2.png" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <title>Burgeratory</title>
 </head>
@@ -20,10 +20,10 @@
           <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarText">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li id="element1" class="navElement"><a href="../index.html"><button>главная</button></a></li>
-                <li id="element2" class="navElement"><a href="menu.html"><button>заказать</button></a></li>
-                <li id="element3" class="navElement"><a href="lab.html"><button>лаборатория</button></a></li>
-                <li id="element4" class="navElement"><a href="info.html"><button>информация</button></a></li>
+                <li id="element1" class="navElement"><a iptl="../index.html" class="transitionButton"><button class="trn">главная</button></a></li>
+                <li id="element2" class="navElement"><a iptl="../pages/menu.html" class="transitionButton"><button class="trn">заказать</button></a></li>
+                <li id="element3" class="navElement"><a iptl="../pages/lab.html" class="transitionButton"><button class="trn">лаборатория</button></a></li>
+                <li id="element4" class="navElement"><a iptl="../pages/info.html" class="transitionButton"><button class="trn">информация</button></a></li>
               </ul>
               <span class="navbar-text">
                 Burgeratory
@@ -45,72 +45,144 @@
         <div class="offcanvas-body">
           <div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><a href="../index.html">главная</a></li>
-              <li class="list-group-item"><a href="menu.html">заказать</a></li>
-              <li class="list-group-item"><a href="lab.html">лаборатория</a></li>
-              <li class="list-group-item"><a href="info.html">информация</a></li>
+              <li id="element1" class="list-group-item navElementMain fs-3 mb-3 pb-5 w-100"><a href="../index.html"><button class="trn">главная</button></a></li>
+              <li id="element2" class="list-group-item navElementMain fs-3 mb-3 pb-5 w-100"><a href="menu.html"><button class="trn">заказать</button></a></li>
+              <li id="element3" class="list-group-item navElementMain fs-3 mb-3 pb-5 w-100"><a href="lab.html"><button class="trn">лаборатория</button></a></li>
+              <li id="element4" class="list-group-item navElementMain fs-3 mb-3 pb-5 w-100"><a href="info.html"><button class="trn">информация</button></a></li>
             </ul>
           </div>
         </div>
     </div>
     <br /><br /><br /><br />
     <!--создаём блок формы заполнения информации-->
-    <div class="row">
-        <div class="col">
-            <form id="mainForm">
-                <p id="formTitle" class="fs-1">ВВЕДИТЕ ВАШИ ДАННЫЕ</p>
-                <label for="nameInput" class="form-label fs-4">имя</label>
-                <input id="nameInput" class="form-control form-control-lg" type="text" placeholder="имя" aria-label=".form-control-lg" required>
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <form id="mainForm" class="d-none d-sm-block">
+                <p id="formTitle" class="fs-1 trn">ВВЕДИТЕ ВАШИ ДАННЫЕ</p>
+                <label for="nameInput" class="form-label fs-4 trn">имя</label>
+                <input id="nameInput" class="form-control form-control-lg" type="text" placeholder="name" aria-label=".form-control-lg" required>
 
-                <label for="familyInput" class="form-label fs-4">фамилия</label>
-                <input id="familyInput" class="form-control form-control-lg" type="text" placeholder="фамилия" aria-label=".form-control-lg" required>
+                <label for="familyInput" class="form-label fs-4 trn">фамилия</label>
+                <input id="familyInput" class="form-control form-control-lg" type="text" placeholder="surname" aria-label=".form-control-lg" required>
 
-                <label for="phoneInput" class="form-label fs-4">телефон</label>
+                <label for="phoneInput" class="form-label fs-4 trn">телефон</label>
                 <input id="phoneInput" class="form-control form-control-lg" type="tel" placeholder="+123-456-7890" aria-label=".form-control-lg" required>
 
-                <label for="adressInput" class="form-label fs-4">адрес</label>
+                <label for="adressInput" class="form-label fs-4 trn">адрес</label>
                 <input id="adressInput" class="form-control form-control-lg" type="text" placeholder="str. Example 12/3" aria-label=".form-control-lg" required>
 
-                <label for="houseInput" class="form-label fs-4">дом</label>
+                <label for="houseInput" class="form-label fs-4 trn">дом</label>
                 <input id="houseInput" class="form-control form-control-lg" type="text" placeholder="123" aria-label=".form-control-lg" required>
 
-                <label for="appartamentInput" class="form-label fs-4">квартира</label>
+                <label for="appartamentInput" class="form-label fs-4 trn">квартира</label>
                 <input id="appartamentInput" class="form-control form-control-lg" type="text" placeholder="123" aria-label=".form-control-lg" required>
 
-                <button id="submitButton" class="btn-primary mt-3 fs-3" type="submit">оплатить</button>
+                <button id="submitButton" class="btn-primary mt-3 fs-3 trn" type="submit">оплатить</button>
             </form>
+
+            <form id="mainFormSm" class="d-sm-none">
+              <p id="formTitle" class="fs-1 trn">ВВЕДИТЕ ВАШИ ДАННЫЕ</p>
+              <label for="nameInput" class="form-label fs-4 trn">имя</label>
+              <input id="nameInput" class="form-control form-control-lg" type="text" placeholder="name" aria-label=".form-control-lg" required>
+
+              <label for="familyInput" class="form-label fs-4 trn">фамилия</label>
+              <input id="familyInput" class="form-control form-control-lg" type="text" placeholder="surname" aria-label=".form-control-lg" required>
+
+              <label for="phoneInput" class="form-label fs-4 trn">телефон</label>
+              <input id="phoneInput" class="form-control form-control-lg" type="tel" placeholder="+123-456-7890" aria-label=".form-control-lg" required>
+
+              <label for="adressInput" class="form-label fs-4 trn">адрес</label>
+              <input id="adressInput" class="form-control form-control-lg" type="text" placeholder="str. Example 12/3" aria-label=".form-control-lg" required>
+
+              <label for="houseInput" class="form-label fs-4 trn">дом</label>
+              <input id="houseInput" class="form-control form-control-lg" type="text" placeholder="123" aria-label=".form-control-lg" required>
+
+              <label for="appartamentInput" class="form-label fs-4 trn">квартира</label>
+              <input id="appartamentInput" class="form-control form-control-lg" type="text" placeholder="123" aria-label=".form-control-lg" required>
+
+              <button id="submitButton" class="btn-primary mt-3 fs-3 trn" type="submit">оплатить</button>
+          </form>
         </div>
         <!--создаём блок счёта-->
-        <div class="col" id="mainBillContent">
-            <p id="mainBillTitle" class="fs-1">счёт</p>
-            <hr />
+        <div class="col-lg col-md-4" id="mainBillContent">
+            <img src="../images/checkBottom.png" id="topBorderCheck">
+            <p id="mainBillTitle" class="pb-2 fs-1 trn">счёт</p>
             <div id="billInfo">
-                <div class="billItem">
-                    <div>
-                        <p class="billItemTitle">машрум</p>
-                        <p class="billItemCount">x1</p>
-                    </div>
-                    <p class="billItemPrice">60</p>
+                <div class="billItem" id="cur">
+                  <div><p class="billItemTitle">машрум</p>
+                    <p class="billItemCount">x1</p>
+                  </div>
+                  <p class="billItemPrice">60</p>
                 </div>
             </div>
-            <hr />
-            <p id="totalPriceTitle" class="fs-1">ИТОГО</p>
-            <p id="totalPrice" class="fs-4">123MDL</p>
+            <p id="totalPriceTitle" class="pt-2 fs-1 trn">ИТОГО</p>
+            <p id="totalPrice" class="fs-4" style="background-color: #f4f4f4;">123MDL</p>
+            <img src="../images/checkBottom.png" id="bottomBorderCheck">
         </div>
     </div>
     <br /><br />
-    <!--блок изменения языка на румынский (работа в прогрессе)-->
-    <button id="languageRo">
-      Ro  
-    </button>
+    
+    <!--создаём блок изменения языка-->
+    <div class="btn-group dropstart">
+      <button type="button" id="languageRo" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="../images/lang.png" id="languageIcon">
+      </button>
+      <ul class="dropdown-menu languageChangeMenu ps-2">
+        <li><a class="dropdown-item languageChange" lan="Ru">ru</a></li>
+        <li><a class="dropdown-item languageChange" lan="Ro">ro</a></li>
+        <li><a class="dropdown-item languageChange" lan="En">en</a></li>
+      </ul>
+    </div>
+
+    <!--блоки анимации перехода между страницами-->
+    <div id="rightSlideAnimFore" class="d-none d-lg-block"></div>
+    <div id="rightSlideAnimBack" class="d-none d-lg-block"></div>
+
+    <div id="leftSlideAnimFore" class="d-none d-lg-block"></div>
+    <div id="leftSlideAnimBack" class="d-none d-lg-block"></div>
+
     <!--создаём нижнюю панель сайта-->
     <div id="footer">
-        <span class="navbar-text fs-5">Copyright 2024. All rights reserved. <p class="fs-5">Данный веб-сайт был выполнен в рамках конкурса "Юные послы Теквилл", организованного проектом "Теквилл в каждой школе" и не обязательно отражает мнение проекта.</p></span>
+      <div class="row">
+        <p>Copyright 2024. All rights reserved. </p>
+      </div>
+      <div class="row flex-nowrap">
+        <div class="col">
+          <div class="footerTitle mb-2 trn">контакты</div>
+          <div class="row footerCol">
+            <p class="footerText"><a href="mailto:burgercraft2@gmail.com" class="footerLink"><img src="../images/mailIcon.png" class="footerIcon"> burgeratory@gmail.com</a></p>
+          </div>
+          <div class="row footerCol mt-2">
+            <p class="footerText"><a href="tel:+37378314855" class="footerLink"><img src="../images/phoneIcon.png" class="footerIcon"> +373 783 148 55 </a></p>
+          </div>
+          <div class="row footerCol mt-2">
+            <p class="footerText"><a href="https://www.instagram.com/blue_triangle_studio/?igshid=Yzg5MTU1MDY%3D" target="_blank" class="footerLink"><img src="../images/instagramIcon.png" class="footerIcon"> @burgeratory</a></p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="footerTitle mb-2 trn">язык</div>
+          <div class="row footerCol">
+            <p class="footerText"><a class="footerLink languageChange" lan="Ru">русский</a></p>
+          </div>
+          <div class="row footerCol mt-2">
+            <p class="footerText"><a class="footerLink languageChange" lan="Ro">română</a></p>
+          </div>
+          <div class="row footerCol mt-2">
+            <p class="footerText"><a class="footerLink languageChange" lan="En">english</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <p class="trn">Данный веб-сайт был выполнен в рамках конкурса "Юные послы Теквилл", организованного проектом "Теквилл в каждой школе" и не обязательно отражает мнение проекта.</p>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="../js/StorageManager.js"></script>
+    <script src="../js/jquery.translate.js"></script>
+    <script src="../js/LanguageControl.js"></script>
     <script src="../js/CheckoutLogic.js"></script>
+    <script src="../js/TransitionAnimationController.js"></script>
 </body>
 </html>
