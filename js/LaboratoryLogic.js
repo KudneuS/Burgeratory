@@ -151,6 +151,7 @@ $("#ingredientsFloat").on("click", ".ingredientButtonUp", function(){
         imageAbove = $(images[images.length - i]);
     }
     else{
+        isAnimating = false;
         return;
     }
 
@@ -234,6 +235,7 @@ $("#ingredientsFloat").on("click", ".ingredientButtonDown", function(){
         imageAbove = $(images[images.length - i - 2]);
     }
     else{
+        isAnimating = false;
         return;
     }
 
