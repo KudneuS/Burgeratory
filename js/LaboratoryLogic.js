@@ -1,7 +1,7 @@
 const IngredientPattern = $("#ingredientsFloat").html();
 const PatternPattern = $("#mainContent").html();
 const NothingHereTextBlock = $("#nothingHere").html();
-const maxIngredientsLimit = 10;
+const maxIngredientsLimit = 15;
 $("#mainContent").html("");
 $("#ingredientsFloat").html("");
 
@@ -162,7 +162,7 @@ $("#ingredientsFloat").on("click", ".ingredientButtonUp", function(){
     curImage.attr("style", curImageBottom + "translate: 0 " + (Math.round(-100 + (images.length / (images.length + 1)) * 80)).toString() + "%; transition: translate ease-in " + (AnimationDuration / 2).toString() + "ms");
     imageAbove.attr("style", imageAboveBottom + "translate: 0 " + (Math.round(100 - (images.length / (images.length + 1)) * 80)).toString() + "%; transition: translate ease-in " + (AnimationDuration / 2).toString() + "ms");
 
-    var interval1 = setInterval(function(){
+    setTimeout(function(){
         let srcBuffer = curImage.attr("src");
         curImage.attr("src", imageAbove.attr("src"));
         imageAbove.attr("src", srcBuffer);
@@ -170,10 +170,9 @@ $("#ingredientsFloat").on("click", ".ingredientButtonUp", function(){
         curImage.attr("style", curImageBottom + "translate: 0 0; transition: translate ease-out " + (AnimationDuration / 2).toString() + "ms");
         imageAbove.attr("style", imageAboveBottom + "translate: 0 0; transition: translate ease-out " + (AnimationDuration / 2).toString() + "ms");
 
-        clearInterval(interval1);
     }, AnimationDuration / 2);
 
-    var interval2 = setInterval(function(){
+    setTimeout(function(){
         curImage.attr("style", curImageBottom);
         imageAbove.attr("style", imageAboveBottom);
         currentObj.removeAttr("style");
@@ -196,7 +195,6 @@ $("#ingredientsFloat").on("click", ".ingredientButtonUp", function(){
         objAbove.attr("ingredientID", curIngID);
         isAnimating = false;
 
-        clearInterval(interval2);
     }, AnimationDuration);
 });
 
@@ -247,7 +245,7 @@ $("#ingredientsFloat").on("click", ".ingredientButtonDown", function(){
     curImage.attr("style", curImageBottom + "translate: 0 " + (Math.round(100 - (images.length / (images.length + 1)) * 80)).toString() + "%; transition: translate ease-in " + (AnimationDuration / 2).toString() + "ms");
     imageAbove.attr("style", imageAboveBottom + "translate: 0 " + (Math.round(-100 + (images.length / (images.length + 1)) * 80)).toString() + "%; transition: translate ease-in " + (AnimationDuration / 2).toString() + "ms");
 
-    var interval1 = setInterval(function(){
+    setTimeout(function(){
         let srcBuffer = curImage.attr("src");
         curImage.attr("src", imageAbove.attr("src"));
         imageAbove.attr("src", srcBuffer);
@@ -255,10 +253,9 @@ $("#ingredientsFloat").on("click", ".ingredientButtonDown", function(){
         curImage.attr("style", curImageBottom + "translate: 0 0; transition: translate ease-out " + (AnimationDuration / 2).toString() + "ms");
         imageAbove.attr("style", imageAboveBottom + "translate: 0 0; transition: translate ease-out " + (AnimationDuration / 2).toString() + "ms");
 
-        clearInterval(interval1);
     }, AnimationDuration / 2);
 
-    var interval2 = setInterval(function(){
+    setTimeout(function(){
         curImage.attr("style", curImageBottom);
         imageAbove.attr("style", imageAboveBottom);
         currentObj.removeAttr("style");
@@ -281,7 +278,6 @@ $("#ingredientsFloat").on("click", ".ingredientButtonDown", function(){
         objAbove.attr("ingredientID", curIngID);
         
         isAnimating = false;
-        clearInterval(interval2);
     }, AnimationDuration);
     
     

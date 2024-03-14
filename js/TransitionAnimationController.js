@@ -20,9 +20,14 @@ $("body").on("click", ".transitionButton", function(){
         $("#rightSlideAnimBack").attr("style", "translate: 0 0");
         $("#leftSlideAnimFore").attr("style", "translate: 0 0");
         $("#leftSlideAnimBack").attr("style", "translate: 0 0");
-    
-        setTimeout(function(){
+        
+        if($("#rightSlideAnimFore").is(":visible")){
+            setTimeout(function(){
+                $(location).attr("href", filePath);
+            }, animationDur);
+        }
+        else{
             $(location).attr("href", filePath);
-        }, animationDur);
+        }
     }
 });
