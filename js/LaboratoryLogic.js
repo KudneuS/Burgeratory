@@ -377,6 +377,7 @@ $("#deleteButton").on("click", function(){
 
     if($("#mainContent").children().length == 0){
         $("#mainContent").html($(NothingHereTextBlock).attr("id", "nothingHereBlock").attr("style", "height: 14em"));
+        RefreshLang();
     }
 });
 
