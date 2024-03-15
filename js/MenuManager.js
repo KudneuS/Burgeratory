@@ -5,7 +5,7 @@ $("#descriptionTab").remove();
 var timeout = 300;
 
 $(document).ready(function(){
-    AnimateMainMenuEnabled();
+    //AnimateMainMenuEnabled();
     AddItemToStorage("editPatternBurg", false);
 
     $("#privatePatterns").html(GetItemFromStorage("patternsBurg"));
@@ -41,7 +41,7 @@ $("#mainBurgContent").on("click", ".mainPreviewPattern", function(){
         RefreshLang();
 
         AnimateMainMenuEnabled();
-    }, timeout);
+    }, timeout + 10);
 });
 
 $("#mainBurgContent").on("click", "#closeWindowMenu", function(){
@@ -52,7 +52,7 @@ $("#mainBurgContent").on("click", "#closeWindowMenu", function(){
         
         RefreshLang();
         AnimateMainMenuEnabled();
-    }, timeout);
+    }, timeout + 10);
 });
 
 $("#patternsMenu").on("click", ".loadPattern", function(){
@@ -77,7 +77,7 @@ $("#patternsMenu").on("click", ".loadPattern", function(){
 
         RefreshLang();
         AnimateMainMenuEnabled();
-    }, timeout);
+    }, timeout + 10);
 });
 
 $("#mainBurgContent").on("click", "#editPattern", function(){
@@ -213,9 +213,20 @@ function ParsePatternHash(patternHash){
 //animation
 
 function AnimateMainMenuEnabled(){
-    $("#mainBurgContent").slideUp(0).slideDown(timeout);
+    //$("#mainBurgContent").slideUp(0).slideDown(timeout);
+    $("#mainBurgContent").animate({
+        opacity: "toggle",
+    }, 0);
+    
+    $("#mainBurgContent").animate({
+        opacity: "toggle",
+    }, timeout);
+    
 }
 
 function AnimateMainMenuDisabled(){
-    $("#mainBurgContent").slideDown(0).slideUp(timeout);
+    //$("#mainBurgContent").slideDown(0).slideUp(timeout);
+    $("#mainBurgContent").animate({
+        opacity: "toggle",
+    }, timeout);
 }

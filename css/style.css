@@ -20,7 +20,6 @@ body{
 }
 
 img{
-	user-drag: none;
     -webkit-user-drag: none;
     user-select: none;
     -moz-user-select: none;
@@ -36,6 +35,7 @@ img{
     height: 3rem;
     padding: 0;
     font-weight: 900;
+    z-index: 8;
     background-color: azure;
     border-radius: 100%;
     transition: width ease-in-out 0.3s, height ease-in-out 0.3s;
@@ -619,23 +619,6 @@ ul {
     font-family: "Montserrat";
 }
 
-.deleteItem{
-    position: relative;
-    width: calc(2rem + 1vw);
-    height: calc(2rem + 1vw);
-    background-image: url("../images/trash.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    opacity: 0;
-    transition: filter ease-in-out 0.3s, opacity ease-in-out 0.3s;
-}
-
-.deleteItem:hover{
-    filter: invert();
-    transition: filter ease-in-out 0.3s;
-}
-
 .cartPreview{
     width: 30%;
     border-radius: 1em;
@@ -694,8 +677,23 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     font-size: 2rem;
     font-weight: 400;
     color: #f0ffff;
-    opacity: 0;
     transition: opacity ease-in-out 0.3s, color ease-in-out 0.3s;
+}
+
+.deleteItem{
+    position: relative;
+    width: calc(2rem + 1vw);
+    height: calc(2rem + 1vw);
+    background-image: url("../images/trash.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: filter ease-in-out 0.3s, opacity ease-in-out 0.3s;
+}
+
+.deleteItem:hover{
+    filter: invert();
+    transition: filter ease-in-out 0.3s;
 }
 
 .removeCartButton{
@@ -707,19 +705,29 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     transition: color ease-in-out 0.3s;
 }
 
-.cartItem:hover .deleteItem{
-    opacity: 1;
-    transition: opacity ease-in-out 0.3s;
-}
+@media (min-width: 576px){
+    .addCartButton, .removeCartButton{
+        opacity: 0;
+    }
 
-.cartItem:hover .addCartButton{
-    opacity: 1;
-    transition: opacity ease-in-out 0.3s;
-}
+    .deleteItem{
+        opacity: 0;
+    }
 
-.cartItem:hover .removeCartButton{
-    opacity: 1;
-    transition: opacity ease-in-out 0.3s;
+    .cartItem:hover .deleteItem{
+        opacity: 1;
+        transition: opacity ease-in-out 0.3s;
+    }
+    
+    .cartItem:hover .addCartButton{
+        opacity: 1;
+        transition: opacity ease-in-out 0.3s;
+    }
+    
+    .cartItem:hover .removeCartButton{
+        opacity: 1;
+        transition: opacity ease-in-out 0.3s;
+    }
 }
 
 .cartItem:hover .burgerNumber{
@@ -839,7 +847,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 .ingredientTitle{
     width: fit-content;
-    margin-left: -3rem;
+    margin-left: 0.5rem;
     transition: margin-left 0.4s;
 }
 
@@ -848,21 +856,30 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     right: 2%;
 }
 
-.buttonBlock{
+.buttonBlock, .buttonBlockSm{
     display: flex;
     height: 100%;
+    transition: translate 0.4s;
+}
+
+.buttonBlock{
     translate: -100% 0;
-    transition: translate 0.4s;
 }
 
-.ingredient:hover > .buttonBlock{
-    translate: 0 0;
-    transition: translate 0.4s;
-}
+@media (min-width: 576px){
+    .ingredientTitle{
+        margin-left: -3rem;
+    }
 
-.ingredient:hover > .ingredientTitle{
-    margin-left: 0.5rem;
-    transition: margin-left 0.4s;
+    .ingredient:hover > .buttonBlock{
+        translate: 0 0;
+        transition: translate 0.4s;
+    }
+    
+    .ingredient:hover > .ingredientTitle{
+        margin-left: 0.5rem;
+        transition: margin-left 0.4s;
+    }
 }
 
 .ingredientButton{
@@ -1054,10 +1071,30 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 
 
+.infoContent{
+    min-height: 100vh;
+}
+
 .infoText{
     text-align: center;
     font-family: "Montserrat";
     font-weight: 900;
+}
+
+.infoBlock{
+    background: none;
+    transition: background ease-in-out 0.5s;
+}
+
+@media(min-width: 992px){
+    .infoBlock{
+        padding-top: 5rem;
+    }
+
+    .infoBlock:hover{
+        background: rgba(255, 255, 255, 0.15);
+        transition: background ease-in-out 0.5s;
+    }
 }
 
 #location{
@@ -1077,13 +1114,14 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
+    justify-content: center;
     color: azure;
     font-weight: 800;
-    margin-left: 0.9vw;
 }
 
 .contactText{
     margin: 0;
+    width: fit-content;
 }
 
 
@@ -1192,8 +1230,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 #footer{
     width: 100%;
     padding: 0.5em;
-    background-color: #283641;
-    border-top: 5px #485460 solid;
+    background-color: #222a31;
+    border-top: 5px #3e5270 solid;
     color: #8d8d8d;
     font-size: 1rem;
     font-family: "Montserrat";
@@ -1219,7 +1257,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .footerText{
-    color: #8d8d8d !important;
+    color: #8d8d8d;
     margin: 0;
 }
 
@@ -1232,10 +1270,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .footerLink:visited{
-    color: #8d8d8d !important;
+    color: #8d8d8d;
 }
 
-/*animation shit*/
+/*animation*/
 
 #rightSlideAnimFore, #rightSlideAnimBack{
     position: fixed;

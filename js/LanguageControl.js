@@ -108,8 +108,8 @@ var voc = {
             En: "pattern was successfully added to cart."
     },
     "булочка Бриошь": {
-        Ro: "chiflă Brioșă",
-        En: "bun Briosh"
+        Ro: 'chiflă "Brioșă"',
+        En: 'bun "Briosh"'
     },
     "котлета из выдержанной говядины": {
         Ro: "cotlet de vită învechit",
@@ -427,6 +427,8 @@ $(".languageChange").on("click", function(ev){
 
 function ChangeLang(language){
     translator.lang(language);
+    $(".banner1").removeAttr("src").attr("src", "images/banner1" + language + ".png");
+    $(".banner2").removeAttr("src").attr("src", "images/banner2" + language + ".png");
     AddItemToStorage("langBurg", language);
 }
 
