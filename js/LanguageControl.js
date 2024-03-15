@@ -427,8 +427,14 @@ $(".languageChange").on("click", function(ev){
 
 function ChangeLang(language){
     translator.lang(language);
-    $(".banner1").removeAttr("src").attr("src", "images/banner1" + language + ".png");
-    $(".banner2").removeAttr("src").attr("src", "images/banner2" + language + ".png");
+    if(language != null){
+        $(".banner1").removeAttr("src").attr("src", "images/banner1" + language + ".png");
+        $(".banner2").removeAttr("src").attr("src", "images/banner2" + language + ".png");
+    }
+    else{
+        $(".banner1").removeAttr("src").attr("src", "images/banner1Ru.png");
+        $(".banner2").removeAttr("src").attr("src", "images/banner2Ru.png");
+    }
     AddItemToStorage("langBurg", language);
 }
 
