@@ -93,7 +93,7 @@ $("#patternsMenu").on("click", ".addToCart", function(){
         $("#cartItems").append(cartPattern);
         let curPattern = $("#cur").removeAttr("id").attr("ingredientHash", burgHash);
     
-        $(curPattern).find(".cartName").text(burgTitle);
+        $(curPattern).find(".cartName").removeAttr("class").removeAttr("data-trn-key").attr("class", "cartName").text(burgTitle);
         $(curPattern).find(".priceIndividual").text(burgPrice);
         $(curPattern).find(".priceTotal").text(burgPrice);
         $(curPattern).find(".cartPreview").removeAttr("src").attr("src", burgImage);
