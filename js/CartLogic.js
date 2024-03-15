@@ -233,4 +233,5 @@ function UpdateTotalPrice(){
 
     $("#cartCount").text(prices.length);
     AddItemToStorage("cartBurg", $("#cartItems").html());
+    RefreshLang();
 }

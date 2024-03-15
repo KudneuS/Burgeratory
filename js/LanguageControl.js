@@ -60,7 +60,7 @@ var voc = {
             En: "add to cart"
     },
     "выбрать шаблон": {
-            Ro: "alegeți un șablonr",
+            Ro: "alege șablonul",
             En: "select pattern"
     },
     "Описание:": {
@@ -234,10 +234,6 @@ var voc = {
     "удалить шаблон": {
             Ro: "șterge șablonul",
             En: "delete pattern"
-    },
-    "выбрать шаблон": {
-            Ro: "alegeți un șablon",
-            En: "select pattern"
     },
     "сохранить": {
             Ro: "salvați",
