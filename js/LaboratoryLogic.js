@@ -364,6 +364,7 @@ $("#saveButton").on("click", function(){
     }
 
     AddItemToStorage("patternsBurg", $("#mainContent").html());
+    RefreshLang();
 });
 
 $("#labPatternsMenu").on("click", ".deleteButton", function(){
