@@ -5,10 +5,6 @@
     box-sizing: border-box;
 }
 
-html{
-    overflow-x: hidden;
-}
-
 body{
     background-image: url("../images/mainBG.png");
     background-size: cover;
@@ -1114,13 +1110,14 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     color: azure;
     font-weight: 800;
 }
 
 .contactText{
     margin: 0;
+    margin-left: 1rem;
     width: fit-content;
 }
 
