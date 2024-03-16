@@ -9,7 +9,7 @@ $(document).ready(function(){
     AddItemToStorage("editPatternBurg", false);
 
     $("#privatePatterns").html(GetItemFromStorage("patternsBurg"));
-    $(".deleteButton").html('добавить в корзину').removeAttr("class", "deleteButton").attr("class", "patternButton addToCart trn");
+    $(".deleteButton").text('добавить в корзину').removeAttr("class", "deleteButton").removeAttr("data-trn-key").attr("class", "patternButton addToCart trn");
     
     if($("#privatePatterns").children().length == 0){
         $("#privatePatterns").html($(NothingHereText).attr("style", "height: 12em;"));
