@@ -23,6 +23,8 @@ $(document).ready(function() {
     UpdateBurgerVisualisation();
 
     if(GetItemFromStorage("editPatternBurg")){
+        let lang = GetItemFromStorage("langBurg");
+        ChangeLang("Ru");
         var ingredientsHash = GetItemFromStorage("lastSelectedBurg").split(".");
         let i = 0;
 
@@ -35,11 +37,12 @@ $(document).ready(function() {
             $("#mainBurgVisualisation").prepend('<img class="ingredientImage" id="image">');
             $("#image").attr("src", "../images/" + ingredientImages[parseInt(ingredientsHash[i])] + ".png").removeAttr("id", "image");
 
-            currentObj.find(".ingredientTitle").html(ingredientTitles[parseInt(ingredientsHash[i]) - 2]);
+            currentObj.find(".ingredientTitle").removeAttr("class").attr("class", "ingredientTitle fs-5 trn").html(ingredientTitles[parseInt(ingredientsHash[i]) - 2]);
             currentObj.find(".ingredientPricing").html(ingredientPrices[parseInt(ingredientsHash[i]) - 2] + "MDL");
         }
 
         UpdateBurgerVisualisation();
+        ChangeLang(lang);
 
         AddItemToStorage("editPatternBurg", false);
     }
@@ -397,7 +400,7 @@ $("#labPatternsMenu").on("click", ".loadPattern", function(){
         $("#mainBurgVisualisation").prepend('<img class="ingredientImage" id="image">');
         $("#image").attr("src", "../images/" + ingredientImages[parseInt(ingredientsHash[i])] + ".png").removeAttr("id", "image");
 
-        currentObj.find(".ingredientTitle").html(ingredientTitles[parseInt(ingredientsHash[i]) - 2]);
+        currentObj.find(".ingredientTitle").removeAttr("class").attr("class", "ingredientTitle fs-5 trn").html(ingredientTitles[parseInt(ingredientsHash[i]) - 2]);
         currentObj.find(".ingredientPricing").html(ingredientPrices[parseInt(ingredientsHash[i]) - 2] + "MDL");
     }
 
