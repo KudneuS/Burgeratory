@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <title>Burgeratory</title>
 </head>
-<body style="background-image: url('../images/infoBG.png'); background-size: cover; background-position: center;">
+<body style="background-image: url('../images/BGInfo.png'); background-size: cover; background-position: center;">
     <!--Создаём блок верхней менюшки-->
     <div id="header">
       <img src="../images/logo.png" id="logoMobile" class="d-lg-none">
@@ -27,7 +27,7 @@
               </ul>
               <span class="navbar-text">
                 Burgeratory
-                <img src="../images/logo.png" id="logo" class="ms-3">
+                <img src="../images/logo.png" id="logo" class="ms-2">
               </span>
             </div>
           </div>
@@ -85,6 +85,14 @@
                       <div class="accordion-body"><div class="d-inline trn">Перейдите во вкладку</div> <a iptl="menu.html" style="text-decoration: underline !important;" class="transitionButton trn">ЗАКАЗАТЬ</a>, <div class="d-inline trn">добавьте шаблонов (бургеров) в корзину. Перейти в корзину можно со страницы</div> <a iptl="menu.html" style="text-decoration: underline !important;" class="transitionButton trn">ЗАКАЗАТЬ</a>. <div class="d-inline trn">Проверте содержимое корзины и нажмине на кнопку</div> <b class="trn">ОФОРМИТЬ ЗАКАЗ</b>. <div class="d-inline trn">После проверте счёт и введите ваши данные, нажав на кнопку подтвердить заказ он будет отправлен нам.</div></div>
                   </div>
                 </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                      <button class="accordion-button collapsed trn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">как сгенерировать случайный бургер?</button>
+                  </h2>
+                  <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body"><div class="d-inline trn">Для этого нужно перейти на страницу</div> <a iptl="lab.html" style="text-decoration: underline !important;" class="transitionButton trn">ЛАБОРАТОРИИ</a> <div class="d-inline trn">и нажать на кнопку</div> <b class="trn">СГЕНЕРИРОВАТЬ</b>. <div class="d-inline trn">Важно помнить что при этом рабочее место очистится и не сохранённые изменения сотрутся.</div></div>
+                  </div>
+                </div>
             </div>
         </div>
       </div>
@@ -108,15 +116,15 @@
         <div id="contacts" class="row">
           <div class="infoText fs-1 my-3 trn">Контакты:</div>
           <div class="row contactCol">
-            <p class="fs-5 contactText"><a href="mailto:burgercraft2@gmail.com">burgeratory@gmail.com</a></p>
+            <a class="contactText" href="mailto:burgercraft2@gmail.com">burgeratory@gmail.com</a>
             <img src="../images/mailIcon.png" class="contactIcon">
           </div>
           <div class="row contactCol mt-3">
-            <p class="fs-5 contactText"><a href="tel:+37378314855"> +373 783 148 55 </a></p>
+            <a class="fs-5 contactText" href="tel:+37378314855"> +373 783 148 55 </a>
             <img src="../images/phoneIcon.png" class="contactIcon">
           </div>
           <div class="row contactCol mt-3">
-            <p class="fs-5 contactText"><a href="https://www.instagram.com/blue_triangle_studio/?igshid=Yzg5MTU1MDY%3D" target="_blank">@burgeratory</a></p>
+            <a class="fs-5 contactText" href="https://www.instagram.com/blue_triangle_studio/?igshid=Yzg5MTU1MDY%3D" target="_blank">@burgeratory</a>
             <img src="../images/instagramIcon.png" class="contactIcon">
           </div>
         </div>

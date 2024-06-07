@@ -85,7 +85,7 @@ $("#patternsMenu").on("click", ".addToCart", function(){
     let curObj = $(this).parent().parent();
     let burgTitle = $(curObj).find(".burgTitle").text();
     let burgPrice = $(curObj).find(".burgPrice").text();
-    let burgImage = $(curObj).find(".patternIcon").attr("src");
+    let burgImage = $(curObj).find(".patternIcon").html();
     let burgHash = $(curObj).attr("ingredientHash").toString();
     let burgExistance = CheckIfHashExists(burgHash);
 
@@ -96,7 +96,8 @@ $("#patternsMenu").on("click", ".addToCart", function(){
         $(curPattern).find(".cartName").removeAttr("class").removeAttr("data-trn-key").attr("class", "cartName").text(burgTitle);
         $(curPattern).find(".priceIndividual").text(burgPrice);
         $(curPattern).find(".priceTotal").text(burgPrice);
-        $(curPattern).find(".cartPreview").removeAttr("src").attr("src", burgImage);
+        $(curPattern).find(".cartPreview").replaceWith("<div class='cartPreviewCustom'>" + burgImage + "</div>");
+        $(curPattern).find(".burgIcon").removeAttr("style").attr("style", "height: 71px !important; width: 100% !important;");
     }
     else{
         var num = $(".cartItem");
@@ -131,11 +132,18 @@ $("#mainBurgContent").on("click", ".addToCart", function(){
     let curObj = $(this).parent().parent().parent().parent();
     let burgTitle = $(curObj).find("#mainTitleBurg").text();
     let burgPrice = $(curObj).find("#mainPricing").text();
+    let customBurg = true;
+    let burgImage;
     let burgImageBuffer = $(curObj).find("#mainBurgImageContainer").attr("style");
+    if(burgImageBuffer == null)
+        burgImage = $(curObj).find("#mainBurgImageContainer").html();
+    else{
+        burgImageBuffer = burgImageBuffer.split(":")[1];
+        burgImage = burgImageBuffer.slice(6, burgImageBuffer.length - 3);
+        customBurg = false;
+    }
     ChangeLang(lang);
     
-    burgImageBuffer = burgImageBuffer.split(":")[1];
-    burgImage = burgImageBuffer.slice(6, burgImageBuffer.length - 3);
     let burgHash = GetItemFromStorage("lastSelectedBurg");
     let burgExistance = CheckIfHashExists(burgHash);
 
@@ -146,7 +154,12 @@ $("#mainBurgContent").on("click", ".addToCart", function(){
         $(curPattern).find(".cartName").text(burgTitle).attr("data-trn-key", burgTitle);
         $(curPattern).find(".priceIndividual").text(burgPrice);
         $(curPattern).find(".priceTotal").text(burgPrice);
-        $(curPattern).find(".cartPreview").removeAttr("src").attr("src", burgImage);
+        if(!customBurg)
+            $(curPattern).find(".cartPreview").removeAttr("src").attr("src", burgImage);
+        else{
+            $(curPattern).find(".cartPreview").replaceWith("<div class='cartPreviewCustom'>" + burgImage + "</div>");
+            $(curPattern).find(".burgIcon").removeAttr("style").attr("style", "height: 71px !important; width: 100% !important;");
+        }
     }
     else{
         var num = $(".cartItem");

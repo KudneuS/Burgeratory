@@ -31,3 +31,23 @@ $("body").on("click", ".transitionButton", function(){
         }
     }
 });
+
+function TransitionToPage(link){
+    if(!animationOn){
+        animationOn = true;
+        let filePath = link;
+        $("#rightSlideAnimFore").attr("style", "translate: 0 0");
+        $("#rightSlideAnimBack").attr("style", "translate: 0 0");
+        $("#leftSlideAnimFore").attr("style", "translate: 0 0");
+        $("#leftSlideAnimBack").attr("style", "translate: 0 0");
+        
+        if($("#rightSlideAnimFore").is(":visible")){
+            setTimeout(function(){
+                $(location).attr("href", filePath);
+            }, animationDur);
+        }
+        else{
+            $(location).attr("href", filePath);
+        }
+    }
+}

@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <title>Burgeratory</title>
 </head>
-<body style="background-image: url('../images/menuBG.png'); background-repeat: no-repeat; background-size: cover; background-position: center 10%;">
+<body style="background-image: url('../images/menuBG1.png'); background-repeat: no-repeat; background-size: cover; background-position: center 10%;">
     <!--создаём блок основной менюшки-->
     <div id="header">
       <img src="../images/logo.png" id="logoMobile" class="d-lg-none">
@@ -27,7 +27,7 @@
               </ul>
               <span class="navbar-text">
                 Burgeratory
-                <img src="../images/logo.png" id="logo" class="ms-3">
+                <img src="../images/logo.png" id="logo" class="ms-2">
               </span>
             </div>
           </div>
@@ -60,8 +60,7 @@
       <div class="row position-relative">
         <div id="mainBurgContent" class="col-lg-8 p-3" style="background: none; padding-top: 0 !important; padding-bottom: 0 !important; flex-direction: row !important;">
           <!--компютерная версия-->
-          <div id="mainPatternsTitle">BURGERS</div>
-          <div class="row mb-3 d-none d-md-flex">
+          <div class="row mb-3 d-none d-md-flex" id="topBlock">
 
             <div class="col mainPreviewPattern" ingredientHash="11.3.5.4.2.18.9">
               <img src="../images/mushroomBurg.png" class="mainImagePattern">
@@ -70,6 +69,7 @@
                 <p class="burgWeight">265g</p>
                 <p class="burgPrice">55MDL</p>
               </div>
+              <div class="glow"></div>
             </div>
 
             <div class="col mainPreviewPattern" ingredientHash="11.9.5.10.4.2.4.2.9">
@@ -79,6 +79,7 @@
                 <p class="burgWeight">470g</p>
                 <p class="burgPrice">90MDL</p>
               </div>
+              <div class="glow"></div>
             </div>
 
             <div class="col mainPreviewPattern" ingredientHash="9.7.12.21.5.16.12">
@@ -88,6 +89,7 @@
                 <p class="burgWeight">251g</p>
                 <p class="burgPrice">64MDL</p>
               </div>
+              <div class="glow"></div>
             </div>
 
             <div class="col mainPreviewPattern" ingredientHash="11.9.6.5.2.3.11">
@@ -97,6 +99,7 @@
                 <p class="burgWeight">259g</p>
                 <p class="burgPrice">47MDL</p>
               </div>
+              <div class="glow"></div>
             </div>
 
           </div>
@@ -110,6 +113,7 @@
                 <p class="burgWeight">270g</p>
                 <p class="burgPrice">57MDL</p>
               </div>
+              <div class="glow"></div>
             </div>
 
             <div class="col mainPreviewPattern" ingredientHash="12.6.5.9.14.2.3.12">
@@ -119,6 +123,7 @@
                 <p class="burgWeight">265g</p>
                 <p class="burgPrice">49MDL</p>
               </div>
+              <div class="glow"></div>
             </div>
 
             <div class="col mainPreviewPattern" ingredientHash="11.16.9.10.13.11.2.9">
@@ -128,6 +133,7 @@
                 <p class="burgWeight">270g</p>
                 <p class="burgPrice">69MDL</p>
               </div>
+              <div class="glow"></div>
             </div>
 
             <div class="col mainPreviewPattern" ingredientHash="9.12.5.7.19.3">
@@ -137,6 +143,7 @@
                 <p class="burgWeight">236g</p>
                 <p class="burgPrice">93MDL</p>
               </div>
+              <div class="glow"></div>
             </div>
 
           </div>
@@ -235,7 +242,7 @@
         <!--блок шаблонов-->
         <div class="col-lg-4 d-lg-flex justify-content-center align-items-start position-relative" style="margin: 0;">
           <div id="patternsMenu" class="w-100">
-            <div id="patternsMenuTitle" class="fs-3 trn">шаблоны:</div>
+            <div id="patternsMenuTitle" class="fs-3 trn">шаблоны</div>
             <div id="privatePatterns">
 
               <div class="pattern py-1">
@@ -264,20 +271,21 @@
     <div id="descriptionTab">
       <div class="row position-relative h-100">
         <div id="mainTitleBurg" class="fs-1 ms-3 w-100 trn">Машрум</div>
-        <div class="col-6 col-lg-8">
+        <div class="col-sm-6 col-lg-8">
           <div id="mainBurgImage">
             <p id="mainPricing" class="fs-5">74MDL</p>
             <div id="mainBurgImageContainer"></div>
           </div>
         </div>
-        <div class="col-6 col-lg-4">
+        <div class="col-sm-6 col-lg-4">
           <div id="mainBurgDescription">
-            <div id="mainTitleDesc" class="fs-2 trn">Описание:</div>
+            <div id="mainTitleDesc" class="fs-2 trn">описание</div>
             <p id="description">340 гр. <br />Булочка Бриошь, котлета из выдержаннойговядины, американский Чеддер, помидоры,корнишоны, грибы демиглас, салат айсберг,луковый мармелад, фирменный соус Торро.</p>
-            <div id="burgButtons">
-              <button class="burgButton addToCart trn">добавить в корзину</button>
-              <button class="burgButton transitionButton trn" id="editPattern" iptl="../pages/lab.html">редактировать шаблон</button>
-            </div>
+            
+          </div>
+          <div id="burgButtons" class="mt-2">
+            <button class="burgButton addToCart trn">добавить в корзину</button>
+            <button class="burgButton transitionButton trn" id="editPattern" iptl="../pages/lab.html">редактировать шаблон</button>
           </div>
         </div>
         <div id="closeWindowMenu" class="fs-3">x</div>
@@ -286,8 +294,7 @@
 
     <!--создаём кнопку перехода в корзину-->
     <div id="gotoCartContainer" class="mb-3 d-none d-md-block">
-      <a id="cartLink" data-bs-toggle="modal" data-bs-target="#cartModal"><button id="gotoCart"><img src="../images/cartIcon.png" class="iconButton" id="cartLeft"><div class="trn d-inline">перейти в корзину</div><img src="../images/cartIcon.png" class="iconButton" id="cartRight"></button></a>
-      
+      <a id="cartLink" data-bs-toggle="modal" data-bs-target="#cartModal"><button id="gotoCart" class="pb-1"><img src="../images/cartIcon.png" class="iconButton" id="cartLeft"><div class="trn d-inline">перейти в корзину</div><img src="../images/cartIcon.png" class="iconButton" id="cartRight"></button></a>
     </div>
 
     <div id="gotoCartIcon" class="d-md-none">
@@ -301,7 +308,7 @@
         <div class="modal-content" id="cartContent">
           <div class="modal-header" id="cartTitle">
             <h1 class="modal-title fs-2 trn" id="cartModalLabel">ВАША КОРЗИНА</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close me-1" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" id="cartItems">
             <div class="cartItem" id="cur">
@@ -320,7 +327,7 @@
           <div class="modal-footer" id="cartFooter">
             <p class="fs-3 trn">ИТОГО</p>
             <p id="totalPrice" class="fs-3">380MDL</p>
-            <button type="button" class="btn btn-primary transitionButton trn" data-bs-dismiss="modal" id="paymentButton" iptl="../pages/checkout.html">к оплате</button>
+            <button type="button" class="btn transitionButton trn" data-bs-dismiss="modal" id="paymentButton" iptl="../pages/checkout.html">к оплате</button>
           </div>
         </div>
       </div>

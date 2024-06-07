@@ -3,12 +3,15 @@ const BigShowcaseMenu = $("#descriptionTab").html();
 const NothingHereText = $("#nothingHere").html();
 $("#descriptionTab").remove();
 var timeout = 300;
+let bounds;
+let mouseIn = false;
 
 $(document).ready(function(){
     //AnimateMainMenuEnabled();
     AddItemToStorage("editPatternBurg", false);
 
     $("#privatePatterns").html(GetItemFromStorage("patternsBurg"));
+    $(".pattern").removeAttr("class").attr("class", "patternMenu py-1");
     $(".deleteButton").text('добавить в корзину').removeAttr("class", "deleteButton").removeAttr("data-trn-key").attr("class", "patternButton addToCart trn");
     
     if($("#privatePatterns").children().length == 0){
@@ -58,7 +61,7 @@ $("#mainBurgContent").on("click", "#closeWindowMenu", function(){
 });
 
 $("#patternsMenu").on("click", ".loadPattern", function(){
-    let burgImage = $(this).parent().parent().find(".patternIcon").attr("src");
+    let burgImage = $(this).parent().parent().find(".patternIcon").html();
     let burgTitle = $(this).parent().parent().find(".burgTitle").text();
     let burgWeight = $(this).parent().parent().find(".burgWeight").text();
     let burgPrice = $(this).parent().parent().find(".burgPrice").text();
@@ -75,7 +78,8 @@ $("#patternsMenu").on("click", ".loadPattern", function(){
         $("#description").html(desc);
         $("#mainPricing").html(burgPrice);
     
-        $("#mainBurgImageContainer").attr("style", "background-image: url('" + burgImage + "');");
+        $("#mainBurgImageContainer").html(burgImage);
+        $("#mainBurgImageContainer").find(".burgIcon").removeAttr("style").attr("style", "height: 100%; width: 100%");
 
         RefreshLang();
         AnimateMainMenuEnabled();
@@ -212,23 +216,75 @@ function ParsePatternHash(patternHash){
     return ingredients;
 }
 
+let currentItem;
+$("#mainBurgContent").on("mouseenter", ".mainPreviewPattern", function(){
+    bounds = $(this).find(".glow")[0].getBoundingClientRect();
+    mouseIn = true;
+    currentItem = this;
+});
+
+$("#mainBurgContent").on("mousemove", ".mainPreviewPattern", function(event){
+    if(mouseIn){
+        RotateToMouse(currentItem, event);
+    }
+});
+
+$("#mainBurgContent").on("mouseleave", ".mainPreviewPattern", function(){
+    bounds = $(currentItem).removeAttr("style");
+    mouseIn = false;
+});
+
 //animation
 
 function AnimateMainMenuEnabled(){
     //$("#mainBurgContent").slideUp(0).slideDown(timeout);
-    $("#mainBurgContent").animate({
-        opacity: "toggle",
-    }, 0);
+    let contentStyle = $("#mainBurgContent").attr("style");
     
-    $("#mainBurgContent").animate({
-        opacity: "toggle",
+    $("#mainBurgContent").removeAttr("style").attr("style", contentStyle + " opacity: 0;");
+    $("#mainBurgContent").removeAttr("style").attr("style", contentStyle + " opacity: 1; transition: opacity ease-in-out " + timeout + "ms;");
+
+    setTimeout(function(){
+        $("#mainBurgContent").removeAttr("style").attr("style", contentStyle);
     }, timeout);
-    
 }
 
 function AnimateMainMenuDisabled(){
     //$("#mainBurgContent").slideDown(0).slideUp(timeout);
-    $("#mainBurgContent").animate({
-        opacity: "toggle",
-    }, timeout);
+    let contentStyle = $("#mainBurgContent").attr("style");
+    if(contentStyle != null){
+        $("#mainBurgContent").removeAttr("style").attr("style", contentStyle + " opacity: 0; transition: opacity ease-in-out " + timeout + "ms;");
+    }
+    else{
+        $("#mainBurgContent").removeAttr("style").attr("style", "opacity: 0; transition: opacity ease-in-out " + timeout + "ms;");
+    }
+}
+
+function RotateToMouse(item, e) {
+    const mouseX = e.pageX;
+    const mouseY = e.pageY;
+    const leftX = mouseX - bounds.x;
+    const topY = mouseY - bounds.y;
+    const center = {
+      x: leftX - bounds.width / 2,
+      y: topY - bounds.height / 2
+    }
+    const distance = Math.sqrt(center.x**2 + center.y**2);
+    
+    $(item).removeAttr("style").attr("style", `transform:
+    scale3d(1.07, 1.07, 1.07)
+    rotate3d(
+      ${center.y / 100},
+      ${-center.x / 100},
+      0,
+      ${Math.log(distance)* 3}deg
+    );`);
+    
+    $(item).find(".glow").removeAttr("style").attr("style", `background-image:
+    radial-gradient(
+      circle at
+      ${center.x * 2 + bounds.width/2}px
+      ${center.y * 2 + bounds.height/2}px,
+      #ffffff55,
+      #0000000f
+    );`);
 }

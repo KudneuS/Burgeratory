@@ -63,9 +63,9 @@ var voc = {
             Ro: "alege șablonul",
             En: "select pattern"
     },
-    "Описание:": {
-            Ro: "Descriere:",
-            En: "Description"
+    "описание": {
+            Ro: "descriere",
+            En: "description"
     },
     "редактировать шаблон": {
             Ro: "editați șablonul",
@@ -211,9 +211,9 @@ var voc = {
             Ro: "friptura de pui",
             En: "chicken steak"
     },
-    "ингредиенты:": {
-        Ro: "Ingrediente:",
-        En: "ingredients:"
+    "ингредиенты": {
+        Ro: "ingrediente",
+        En: "ingredients"
     },
     "добавить": {
             Ro: "adăuga",
@@ -227,9 +227,9 @@ var voc = {
             Ro: "рreț",
             En: "price"
     },
-    "шаблоны:": {
-            Ro: "șabloane:",
-            En: "patterns:"
+    "шаблоны": {
+            Ro: "șabloane",
+            En: "patterns"
     },
     "удалить шаблон": {
             Ro: "șterge șablonul",
@@ -402,6 +402,70 @@ var voc = {
     "счёт": {
         Ro: "nota de plata",
         En: "bill"
+    },
+    "сгенерировать":{
+        Ro: "genera",
+        En: "generate"
+    },
+    "ВЫБЕРЕТЕ СПОСОБ ОПЛАТЫ":{
+        Ro: "ALEGEȚI O METODĂ DE PLATĂ",
+        En: "CHOOSE PAYMENT METHOD"
+    },
+    "карта":{
+        Ro: "card",
+        En: "card"
+    },
+    "имя на карте":{
+        Ro: "numele pe card",
+        En: "name on the card"
+    },
+    "имя на карте":{
+        Ro: "numele pe card",
+        En: "name on the card"
+    },
+    "номер карты":{
+        Ro: "numărul de card",
+        En: "card number"
+    },
+    "действительна до":{
+        Ro: "data exp.",
+        En: "exp. date"
+    },
+    "наличные":{
+        Ro: "bani gheata",
+        En: "cash"
+    },
+    "назад":{
+        Ro: "înapoi",
+        En: "back"
+    },
+    "подтвердить":{
+        Ro: "confirma",
+        En: "confirm"
+    },
+    "эл. почта":{
+        Ro: "e-mail",
+        En: "e-mail"
+    },
+    "Для этого нужно перейти на страницу":{
+        Ro: "Pentru a face acest lucru, accesați pagina",
+        En: "To do this, go to the"
+    },
+    "и нажать на кнопку":{
+        Ro: " și faceți clic pe butonul",
+        En: " page and click on the"
+    },
+    "СГЕНЕРИРОВАТЬ":{
+        Ro: "GENERATE",
+        En: "GENERATE button"
+    },
+    "Важно помнить что при этом рабочее место очистится и не сохранённые изменения сотрутся.":{
+        Ro: "Este important să rețineți că acest lucru va șterge spațiul de lucru și modificările nesalvate vor fi șterse.",
+        En: "It is important to remember that this will clear the workspace and unsaved changes will be erased."
+    },
+    "как сгенерировать случайный бургер?":{
+        Ro: "cum se generează un burger aleatoriu?",
+        En: "how to generate a random burger?"
     }
 };
 
@@ -426,10 +490,12 @@ function ChangeLang(language){
     if(language != null){
         $(".banner1").removeAttr("src").attr("src", "images/banner1" + language + ".png");
         $(".banner2").removeAttr("src").attr("src", "images/banner2" + language + ".png");
+        $(".banner3").removeAttr("src").attr("src", "images/banner3" + language + ".png");
     }
     else{
         $(".banner1").removeAttr("src").attr("src", "images/banner1Ru.png");
         $(".banner2").removeAttr("src").attr("src", "images/banner2Ru.png");
+        $(".banner3").removeAttr("src").attr("src", "images/banner3Ru.png");
     }
     AddItemToStorage("langBurg", language);
 }

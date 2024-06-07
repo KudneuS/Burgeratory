@@ -195,7 +195,7 @@ a:active {
 }
 
 .navElement {
-    margin: 0 1%;
+    margin: 0 0.3%;
     width: 17vw;
     height: 2em;
 }
@@ -217,7 +217,7 @@ button{
     text-decoration: none;
     cursor: pointer;
     color: black;
-    font-weight: 500;
+    font-family: "Century Gothic", "Monserrat", monodisplay, sans-serif;
     transition: color ease-in-out 0.2s;
     background: none;
     border: none;
@@ -250,8 +250,9 @@ ul {
 }
 
 #logo{
-    width: 8vh;
+    width: 7vh;
     margin-bottom: 0.5vh;
+    margin-top: -1vh;
 }
 #logoMobile{
     height: 90%;
@@ -268,8 +269,10 @@ ul {
 }
 
 .navbar-text{
-    font-size: calc(-0.5vh + 3vw);
-    font-weight: 1000;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-top: 0.6%;
+    text-transform: uppercase;
     color: azure;
 }
 
@@ -387,8 +390,8 @@ ul {
 }
 
 .iconButton{
-    height: 1.5em;
-    padding: 0.5% 0;
+    height: 1.2em;
+    margin-top: 0.1em;
 }
 
 
@@ -399,12 +402,15 @@ ul {
 }
 
 #mainTitleBurg{
+    font-family: "Century Gothic", "Montserrat", monodisplay, sans-serif;
     font-weight: 900;
+    text-transform: uppercase;
     display: flex;
     align-items: center;
 }
 
 #mainTitleDesc{
+    font-family: "Century Gothic", "Montserrat", monodisplay, sans-serif;
     font-weight: 700;
     margin-left: 0.5vw;
 }
@@ -415,6 +421,10 @@ ul {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+}
+
+#topBlock{
+    margin-top: 1.3rem;
 }
 
 #mainBurgImage{
@@ -438,11 +448,39 @@ ul {
     border-radius: inherit;
 }
 
+.btn-close{
+    filter: invert(1);
+}
+
+#paymentButton{
+    background-color: azure;
+    color: black;
+}
+
+@media(max-width: 576px){
+    #mainBurgImage{
+        width: 80%;
+        margin-left: 10%;
+        margin-bottom: 3%;
+        margin-top: 2%;
+        height: 30vh;
+    }
+
+    #burgButtons{
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .burgButton{
+        height: 4vh;
+    }
+}
+
 .burgTitle, .burgWeight, .burgPrice{
     margin: 0;
     font-weight: 600;
     font-size: calc(0.7rem + 0.3vw);
-    font-family: "Montserrat";
+    font-family: "Century Gothic", "Montserrat", monodisplay, sans-serif;
 }
 
 #mainBurgImageImage{
@@ -467,11 +505,15 @@ ul {
 }
 
 #description{
+    font-family: "Century Gothic", "Montserrat", monodisplay, sans-serif;
     margin-bottom: 0;
+    font-weight: 700;
     font-size: 1rem;
 }
 
 .burgButton{
+    font-family: "Century Gothic", "Monserrat", monodisplay, sans-serif;
+    font-weight: 900;
     background-color: azure;
     padding: 0.2vw 0;
     margin-top: 0.8vw;
@@ -480,7 +522,7 @@ ul {
 }
 
 .burgButton:hover, #gotoCart:hover, .patternButton:hover, .labButton:hover, .accordion-button:hover, #languageRo:hover{
-    color: #9cc762;
+    color: #9cc762 !important;
 }
 
 #closeWindowMenu{
@@ -513,17 +555,44 @@ ul {
     height: 100%;
     font-size: 1.1rem;
     background: none;
+    background-size: cover;
     border-radius: 1em;
-    transition: background ease-in-out 0.3s;
+    transition-duration: 300ms;
+    transition-property: transform, box-shadow;
+    transition-timing-function: ease-out;
+    transform: rotate3d(0);
+    transition: background ease-in-out 0.3s, transform ease-in-out 0.2s;
 }
 
 .mainPreviewPattern:hover{
-    background: rgba(255, 255, 255, 0.4);
+    background: no-repeat url("../images/card4.png");
+    background-size: cover;
     cursor: pointer;
+    transition-duration: 150ms;
+    box-shadow: 0 5px 20px 5px #00000044;
     transition: background ease-in-out 0.3s;
 }
 
+.mainPreviewPattern .glow{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 1em;
+    pointer-events: none;
+    background-image: radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);
+    opacity: 0;
+    transition: opacity ease-in-out 0.3s;
+}
+
+.mainPreviewPattern:hover .glow{
+    opacity: 1;
+    transition: opacity ease-in-out 0.3s;
+}
+
 .mainImagePattern{
+    position: relative;
     width: 100%;
     background-color: black;
     padding-top: 1em;
@@ -532,12 +601,13 @@ ul {
 
 .mainPropPattern{
     padding-left: 0.5em;
+    color: azure;
 }
 
 #gotoCartContainer{
-    margin-left: 15%;
+    margin-left: 30%;
     bottom: 2%;
-    width: 70%;
+    width: 40%;
     height: 3rem;
     position: fixed;
     display: flex;
@@ -545,8 +615,9 @@ ul {
 }
 
 #gotoCart{
-    font-size: 2rem;
+    font-size: 1.6rem;
     background-color: azure;
+    font-weight: 800;
     border-radius: 1vw;
 }
 
@@ -581,17 +652,15 @@ ul {
 
 #cartLeft{
     float: left;
-    margin-left: 5%;
 }
 
 #cartRight{
     float: right;
-    margin-right: 5%;
     transform: scaleX(-1);
 }
 
 #cartContent{
-    background-image: url("../images/cartBG.png");
+    background-image: url("../images/cartBG1.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -617,9 +686,20 @@ ul {
 
 .cartPreview{
     width: 30%;
+    height: 100%;
     border-radius: 1em;
     background-color: black;
     padding-top: 0.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.cartPreviewCustom{
+    width: 30%;
+    height: 100%;
+    border-radius: 1em;
+    background-color: black;
+    padding: 0.25em 4.25em;
     margin-left: 0.5em;
     margin-right: 0.5em;
 }
@@ -651,8 +731,8 @@ ul {
     padding: 0;
     font-size: 0.8rem;
     color: azure;
-    background: none;
-    border: none;
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px rgba(255, 255, 255, 0.4) solid;
     border-radius: 0.5em;
     transition: background ease-in-out 0.3s, border ease-in-out 0.3s;
 }
@@ -740,7 +820,11 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .hidden{
-    display: none;
+    display: none !important;
+}
+
+.transparent{
+    opacity: 0 !important;
 }
 
 .nothingHereText{
@@ -756,7 +840,6 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 #patternsMenu{
     position: relative;
     height: 28em;
-    overflow: auto;
     background: rgba(255, 255, 255, 0.4);
     border-right: 0.5em rgba(255, 255, 255, 0.6) solid;
     border-top-left-radius: 2vw;
@@ -764,13 +847,31 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     padding-bottom: 1.5vw;
 }
 
+#privatePatterns{
+    height: 25.3em;
+    overflow: auto;
+    border-top-left-radius: 2vw;
+    border-bottom-left-radius: 2vw;
+}
+
 #patternsMenuTitle{
-    font-weight: 900;
+    font-weight: 500;
+    color: azure;
     text-align: center;
-    font-family: "Montserrat";
+    font-family: "Century Gothic", "Monserrat", monodisplay, sans-serif;
 }
 
 .pattern{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    background: #3d5270;
+    color: azure;
+    margin-bottom: 2%;
+}
+
+.patternMenu{
     display: flex;
     width: 100%;
     height: fit-content;
@@ -781,24 +882,26 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 .patternIcon{
     height: 4em;
-    background: azure;
+    width: 210px;
+    background: #eeeeef;
     border-radius: 1vw;
     float: left;
     margin-left: 2%;
 }
 
 .patternInfo{
-    width: 90%;
+    width: 50%;
     margin-left: 2%;
 }
 
 .patternButton{
     position: relative;
-    background-color: azure;
+    background-color: #eeeeef;
     margin: 2% 0;
-    padding: 2% 1%;
+    padding: 2% 2%;
     border-radius: 1.5em;
     font-size: 0.75em;
+    font-weight: 900;
 }
 
 
@@ -806,12 +909,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 #ingredientsList{
     position: relative;
     width: auto;
-    height: 32em;
-    background-color: #5b80a5;
-    border-left: 0.5em rgba(255, 255, 255, 0.6) solid;
-    box-shadow: 5px 0 #4e6d8d;
-    border-top-right-radius: 2vw;
-    border-bottom-right-radius: 2vw;
+    height: 30em;
+    background-color: #49678b;
+    box-shadow: 10px 10px #364a66;
+    border-radius: 1vw;
     z-index: 2;
 }
 
@@ -821,7 +922,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .ingredientsTitle{
-    font-weight: 900;
+    font-weight: 500;
+    color: azure;
+    font-family: "Century Gothic", "Monserrat", monodisplay, sans-serif;
     text-align: center;
 }
 
@@ -844,12 +947,30 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .ingredientTitle{
     width: fit-content;
     margin-left: 0.5rem;
+    font-family: "Myriard Pro", sans-serif;
     transition: margin-left 0.4s;
 }
 
 .ingredientPricing{
     position: absolute;
-    right: 2%;
+    font-family: "Myriard Pro", sans-serif;
+    right: 8%;
+}
+
+@media(min-width: 992px){
+    @media(max-width: 1111px){
+        .ingredientPricing{
+            right: 5%;
+        }
+    }
+}
+
+@media(min-width: 576px){
+    @media(max-width: 727px){
+        .ingredientPricing{
+            right: 5%;
+        }
+    }
 }
 
 .buttonBlock, .buttonBlockSm{
@@ -909,14 +1030,16 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 #labPatternsMenu{
     position: relative;
-    height: 32em;
-    overflow: auto;
-    background-color: #5b80a5;
-    border-right: 0.5em rgba(255, 255, 255, 0.6) solid;
-    box-shadow: -5px 0 #4e6d8d;
-    border-top-left-radius: 2vw;
-    border-bottom-left-radius: 2vw;
+    height: 30em;
+    background-color: #49678b;
+    box-shadow: -10px 10px #364a66;
+    border-radius: 1vw;
     padding-bottom: 1.5vw;
+}
+
+#mainContent{
+    overflow: auto;
+    height: 25em;
 }
 
 .disabled{
@@ -928,18 +1051,46 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 #burgInfoBlock{
-    width: 80%;
-    margin-left: 10%;
+    width: 60%;
+    margin-left: 20%;
 }
 
 .burgInfoItem{
-    background-color: azure;
-    border-radius: 1em;
+    background-color: #3d5270;
+    border: 3px azure solid;
+    border-radius: 0.7em;
+    color: azure;
 }
 
 .labButton{
-    background-color: azure;
-    border-radius: 1em;
+    background-color: #3d5270;
+    color: azure;
+    border: 3px azure solid;
+    border-radius: 0.7em;
+}
+
+#labButtons{
+    width: 60%;
+    margin-left: 20%;
+}
+
+#generateContainer{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 6vh;
+}
+
+#generateButton{
+    width: fit-content;
+    height: auto;
+}
+
+.diceImage{
+    width: 10%;
 }
 
 #addButton{
@@ -947,8 +1098,13 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     left: 10%;
     bottom: 3%;
     width: 80%;
+    background-color: #30435e;
+    border: none;
+    color: azure;
     height: fit-content;
 }
+
+
 
 .deleteIcon{
     height: 100%;
@@ -963,7 +1119,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     transition: background-color ease-in-out 0.2s;
 }
 
-#burgVisualisation{
+#burgVisualisation, #mainBurgAnim, .burgIcon{
     position: relative;
     height: 32em;
     display: flex;
@@ -977,6 +1133,12 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     position: absolute;
     height: 20%;
     transition: bottom ease-in-out 300ms;
+}
+
+.ingredientAnim{
+    position: absolute;
+    height: 50%;
+    transition: height ease-in-out 500ms;
 }
 
 
@@ -999,7 +1161,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     margin-left: -3rem;
     padding-left: 2.5rem;
     width: 90%;
-    height: 32em;
+    height: 30em;
     background-color: #49678c;
     border-top-right-radius: 2vw;
     border-bottom-right-radius: 2vw;
@@ -1052,8 +1214,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .ingredientItemTitle, .ingredientItemPricing{
-    font-weight: 600;
+    font-weight: 200;
     font-size: 3.5vw;
+    font-family: "Myriard Pro", sans-serif;
     text-align: center;
 }
 
@@ -1073,7 +1236,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 .infoText{
     text-align: center;
-    font-family: "Montserrat";
+    font-family: "Century Gothic", "Montserrat";
+    color: azure;
     font-weight: 900;
 }
 
@@ -1121,49 +1285,105 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     width: fit-content;
 }
 
+.contactText:link, .contactText:visited{
+    color: azure;
+}
+
+.contactText:hover{
+    color: black;
+}
 
 
 #mainForm{
+    height: 47em;
     padding-left: 11vw;
     padding-right: 2vw;
     padding-bottom: 5rem;
-    padding-top: 2rem;
+    padding-top: 1rem;
     background-image: url("../images/formBG.png");
-    font-family: "Montserrat";
+    font-family: "Century Gothic", "Monsterrat", monodisplay, sans-serif;
     background-repeat: no-repeat;
     background-position: left;
     background-size: cover;
+    overflow-y: hidden;
 }
 
-#mainFormSm{
-    padding-left: 4vw;
-    padding-right: 4vw;
-    padding-bottom: 5rem;
-    padding-top: 2rem;
-    background-image: url("../images/formBG.png");
-    font-family: "Montserrat";
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: cover;
+@media(max-width: 516px){
+    #mainForm{
+        padding-left: 4vw;
+        padding-right: 4vw;
+        padding-bottom: 5rem;
+        font-family: "Century Gothic", "Monsterrat", monodisplay, sans-serif;
+        background-position: right;
+        background-size: cover;
+    }
 }
 
-#formTitle{
+.formTitle{
     text-align: center;
     font-weight: 900;
+    margin-top: 5%;
 }
 
-#submitButton{
+#submitButton, #payButton, #backButton{
     height: 3rem;
     border-radius: 0.5em;
+}
+
+.paymentChoice{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 73%;
+    border: 4px solid #707070;
+    border-radius: 1em;
+}
+
+.paymentBlock{
+    height: 48%;
+    margin: 1% 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
 }
 
 #mainBillContent{
     max-width: 80%;
     height: fit-content;
-    padding: 2rem 0;
-    margin-top: 2rem;
-    font-family: "Montserrat";
+    padding-bottom: 2rem;
+    font-family: "Century Gothic", "Montserrat";
     background-size: cover;
+}
+
+@media(max-width: 768px){
+    #mainBillContent{
+        margin-top: 2em;
+    }
+}
+
+.paymentBorder{
+    width: 95%;
+    opacity: 1;
+    color: #000000;
+    background-color: #000000;
+    border: 2px solid black;
+    border-radius: 0.5em;
+}
+
+.paymentMethod{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    border: 3px solid #707070;
+    border-radius: 0.75em;
+}
+
+#firstPhase, #secondPhase{
+    height: 100%;
 }
 
 #mainBillTitle, #billInfo, #totalPriceTitle{

@@ -27,7 +27,7 @@
               </ul>
               <span class="navbar-text">
                 Burgeratory
-                <img src="../images/logo.png" id="logo" class="ms-3">
+                <img src="../images/logo.png" id="logo" class="ms-2">
               </span>
             </div>
           </div>
@@ -57,51 +57,85 @@
     <!--создаём блок формы заполнения информации-->
     <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8">
-            <form id="mainForm" class="d-none d-sm-block">
-                <p id="formTitle" class="fs-1 trn">ВВЕДИТЕ ВАШИ ДАННЫЕ</p>
-                <label for="nameInput" class="form-label fs-4 trn">имя</label>
-                <input id="nameInput" class="form-control form-control-lg" type="text" placeholder="name" aria-label=".form-control-lg" required>
+            <form id="mainForm" onsubmit="reset(); return false;">
+              <div id="firstPhase">
+                <p class="fs-2 formTitle trn">ВВЕДИТЕ ВАШИ ДАННЫЕ</p>
+                <label for="nameInput" class="form-label fs-5 trn">имя</label>
+                <input id="nameInput" class="form-control form-control-md" type="text" placeholder="name" aria-label=".form-control-lg" required>
 
-                <label for="familyInput" class="form-label fs-4 trn">фамилия</label>
-                <input id="familyInput" class="form-control form-control-lg" type="text" placeholder="surname" aria-label=".form-control-lg" required>
+                <label for="familyInput" class="form-label fs-5 trn">фамилия</label>
+                <input id="familyInput" class="form-control form-control-md" type="text" placeholder="surname" aria-label=".form-control-lg" required>
 
-                <label for="phoneInput" class="form-label fs-4 trn">телефон</label>
-                <input id="phoneInput" class="form-control form-control-lg" type="tel" placeholder="+123-456-7890" aria-label=".form-control-lg" required>
+                <div class="row">
+                  <div class="col">
+                    <label for="phoneInput" class="form-label fs-5 trn">телефон</label>
+                    <input id="phoneInput" class="form-control form-control-md" type="tel" placeholder="+123 456 7890" aria-label=".form-control-lg" required>
+                  </div>
+                  <div class="col">
+                    <label for="emailInput" class="form-label fs-5 trn">эл. почта</label>
+                    <input id="emailInput" class="form-control form-control-md" type="email" placeholder="example@email.md" aria-label=".form-control-lg" required>
+                  </div>
+                </div>
 
-                <label for="adressInput" class="form-label fs-4 trn">адрес</label>
-                <input id="adressInput" class="form-control form-control-lg" type="text" placeholder="str. Example 12/3" aria-label=".form-control-lg" required>
+                <label for="adressInput" class="form-label fs-5 trn">адрес</label>
+                <input id="adressInput" class="form-control form-control-md" type="text" placeholder="str. Example 12/3" aria-label=".form-control-lg" required>
 
-                <label for="houseInput" class="form-label fs-4 trn">дом</label>
-                <input id="houseInput" class="form-control form-control-lg" type="text" placeholder="123" aria-label=".form-control-lg" required>
+                <label for="houseInput" class="form-label fs-5 trn">дом</label>
+                <input id="houseInput" class="form-control form-control-md" type="text" placeholder="123" aria-label=".form-control-lg" required>
 
-                <label for="appartamentInput" class="form-label fs-4 trn">квартира</label>
-                <input id="appartamentInput" class="form-control form-control-lg" type="text" placeholder="123" aria-label=".form-control-lg" required>
+                <label for="appartamentInput" class="form-label fs-5 trn">квартира</label>
+                <input id="appartamentInput" class="form-control form-control-md" type="text" placeholder="123" aria-label=".form-control-lg" required>
 
-                <button id="submitButton" class="btn-primary mt-3 fs-3 trn" type="submit">оплатить</button>
+                <button id="submitButton" class="btn-primary mt-3 fs-3 trn" type="button">оплатить</button>
+                <div id="formError1" class="errorMessage text-center fs-5 hidden">заполните всю форму!</div>
+              </div>
+              <br /><br /><br /><br />
+              <div id="secondPhase">
+                <p class="fs-2 formTitle trn">ВЫБЕРЕТЕ СПОСОБ ОПЛАТЫ</p>
+                <div class="paymentChoice">
+                  <div class="paymentBlock" style="justify-content: end;">
+                    <div class="paymentMethod" style="transition: opacity ease-in-out 300ms;">
+                      <input class="form-check-input ms-3" type="radio" name="radio" id="cardRadio" value="1" required>
+                      <label class="form-check-label me-3 w-100 h-100 text-center fs-4 trn" for="cardRadio">карта</label>
+                    </div>
+                    <div id="cardForm" class="px-2">
+                      <div class="row">
+                        <div class="col-6">
+                          <label for="cardName" class="form-label fs-5 trn">имя на карте</label>
+                          <input id="cardName" class="form-control form-control-md" type="text" placeholder="name" aria-label=".form-control-lg" required>
+                        </div>
+                        <div class="col-6">
+                          <label for="cardInput" class="form-label fs-5 trn">номер карты</label>
+                          <input id="cardInput" class="form-control form-control-md" type="text" placeholder="1111 2222 3333 4444" minlength="19" maxlength="19" aria-label=".form-control-lg" onpaste="return false;" required>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-3">
+                          <label for="cardExpiration" class="form-label fs-5 trn">действительна до</label>
+                          <input id="cardExpiration" class="form-control form-control-md" type="text" placeholder="05/27" maxlength="5" aria-label=".form-control-lg" onpaste="return false;" required>
+                        </div>
+                        <div class="col-3">
+                          <label for="cardCVV" class="form-label fs-5">CVV</label>
+                          <input id="cardCVV" class="form-control form-control-md" type="text" placeholder="123" minlength="3" maxlength="3" pattern="\d{3,3}" aria-label=".form-control-lg" onpaste="return false;" required>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center" style="height: 5.5em;">
+                          <img class="h-75" src="../images/cardIcon.png" alt="...">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr class="paymentBorder" />
+                  <div class="paymentBlock" style="justify-content: start;">
+                    <div class="paymentMethod">
+                      <input class="form-check-input ms-3" type="radio" name="radio" id="nalRadio" value="2" required>
+                      <label class="form-check-label me-3 w-100 h-100 text-center fs-4 trn" for="nalRadio">наличные</label>
+                    </div>
+                  </div>
+                </div>
+                <button id="backButton" class="btn-secondary mt-3 fs-3 trn" type="button">назад</button>
+                <button id="payButton" class="btn-primary mt-1 fs-3 trn" type="submit">подтвердить</button>
+              </div>
             </form>
-
-            <form id="mainFormSm" class="d-sm-none">
-              <p id="formTitle" class="fs-1 trn">ВВЕДИТЕ ВАШИ ДАННЫЕ</p>
-              <label for="nameInput" class="form-label fs-4 trn">имя</label>
-              <input id="nameInput" class="form-control form-control-lg" type="text" placeholder="name" aria-label=".form-control-lg" required>
-
-              <label for="familyInput" class="form-label fs-4 trn">фамилия</label>
-              <input id="familyInput" class="form-control form-control-lg" type="text" placeholder="surname" aria-label=".form-control-lg" required>
-
-              <label for="phoneInput" class="form-label fs-4 trn">телефон</label>
-              <input id="phoneInput" class="form-control form-control-lg" type="tel" placeholder="+123-456-7890" aria-label=".form-control-lg" required>
-
-              <label for="adressInput" class="form-label fs-4 trn">адрес</label>
-              <input id="adressInput" class="form-control form-control-lg" type="text" placeholder="str. Example 12/3" aria-label=".form-control-lg" required>
-
-              <label for="houseInput" class="form-label fs-4 trn">дом</label>
-              <input id="houseInput" class="form-control form-control-lg" type="text" placeholder="123" aria-label=".form-control-lg" required>
-
-              <label for="appartamentInput" class="form-label fs-4 trn">квартира</label>
-              <input id="appartamentInput" class="form-control form-control-lg" type="text" placeholder="123" aria-label=".form-control-lg" required>
-
-              <button id="submitButton" class="btn-primary mt-3 fs-3 trn" type="submit">оплатить</button>
-          </form>
         </div>
         <!--создаём блок счёта-->
         <div class="col-lg col-md-4" id="mainBillContent">
@@ -179,6 +213,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="../js/StorageManager.js"></script>
     <script src="../js/jquery.translate.js"></script>
     <script src="../js/LanguageControl.js"></script>
