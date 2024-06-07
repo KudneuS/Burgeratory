@@ -212,7 +212,6 @@ $("#paymentButton").on("click", function(){
         else{
             items.push($(names[i]).text() + ".1." + $(prices[i]).text().slice(0, $(prices[i]).text().length - 3) + ";" + $(cartItems[i]).attr("ingredientHash"));
         }
-        console.log(items[i]);
     }
     
     AddItemToStorage("checkoutList", items);

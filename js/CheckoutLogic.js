@@ -25,20 +25,20 @@ $(document).ready(function(){
         let properties = items[i].split(";")[0].split(".");
         let hash = items[i].split(";")[1].split(".");
         let ingredients = "";
+        let j = 0;
         totalPrice += parseInt(properties[2]);
 
         $(curObj).find(".billItemTitle").text(properties[0]);
         $(curObj).find(".billItemCount").text("x"+properties[1]);
         $(curObj).find(".billItemPrice").text(properties[2] + "MDL");
-
-        for(let x = 0; hash.length < x; x++){
+        for(j; hash.length > j; j++){
             let addition = "";
-            if(x != hash.length)
+            if(j != hash.length)
                 addition = ", ";
 
-            ingredients += ingredientTitles[hash[x] - 2] + addition;
+            ingredients += ingredientTitles[parseInt(hash[j]) - 2] + addition;
         }
-
+        
         order += properties[0] + " x" + properties[1] + " - " + properties[2] + "MDL ("+ ingredients +") <br />";
     }
 
