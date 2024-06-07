@@ -1,5 +1,6 @@
 const billPattern = $("#billInfo").html();
 $("#billInfo").html("");
+var ingredientTitles = ["patty", "salad", "cheese", "tomato", "cucumber", "pickles", "ketchup", "onion", "bacon", "mayo", "mustard", "peper", "jalapeno", "egg", "arugula", "spinach", "mushrooms", "fish steak", "salami", "chicken steak"];
 var items;
 var totalPrice = 0;
 var isCardMenuActive = false;
@@ -20,14 +21,25 @@ $(document).ready(function(){
     for(i; i < items.length; i++){
         $("#billInfo").append(billPattern);
 
-        let curObj = $("#cur").removeAttr("id");
-        let properties = items[i].split(".");
+        let curObj = $("#cur").removeAttr("id").attr("ingredientHash", items[i].split(";")[1]);
+        let properties = items[i].split(";")[0].split(".");
+        let hash = items[i].split(";")[1].split(".");
+        let ingredients = "";
         totalPrice += parseInt(properties[2]);
 
         $(curObj).find(".billItemTitle").text(properties[0]);
         $(curObj).find(".billItemCount").text("x"+properties[1]);
         $(curObj).find(".billItemPrice").text(properties[2] + "MDL");
-        order += properties[0] + " x" + properties[1] + " - " + properties[2] + "MDL <br />";
+
+        for(let x = 0; hash.length < x; x++){
+            let addition = "";
+            if(x != hash.length)
+                addition = ", ";
+
+            ingredients += ingredientTitles[hash[x] - 2] + addition;
+        }
+
+        order += properties[0] + " x" + properties[1] + " - " + properties[2] + "MDL ("+ ingredients +") <br />";
     }
 
     $("#totalPrice").text(totalPrice + "MDL");
@@ -38,13 +50,13 @@ $("#submitButton").on("click", function(){
     //RemoveItemFromStorage("cartBurg");
 
     if(CheckFormValidation(1)){
-        $("#formError1").removeAttr("class").attr("class", "errorMessage text-center fs-5 hidden")
+        $("#formError1").removeAttr("class").attr("class", "errorMessage text-center fs-5 hidden trn")
         document.getElementById("secondPhase").scrollIntoView({ behavior: "smooth", block: "start"});
         //document.getElementById("secondPhase").scrollIntoView(true);
         FreezeYMovement(1100);
     }
     else{
-        $("#formError1").removeAttr("class").attr("class", "errorMessage text-center fs-5")
+        $("#formError1").removeAttr("class").attr("class", "errorMessage text-center fs-5 trn")
     }
 });
 
@@ -220,7 +232,7 @@ $("#payButton").on("click", function(){
     "<br />" + "Email: " + $("#emailInput").val() + 
     "<br />" + "Adress: " + $("#adressInput").val() + 
     "<br />" + "House: " + $("#houseInput").val() + 
-    "<br />" + "Apartment: " + $("#appartamentInput").val() + "<br />";
+    "<br />" + "Apartment: " + $("#appartamentInput").val() + "<br />" + "<h2><b>Order:</b></h2><br />" + order;
 
     if(isCardMenuActive)
         messageBody += "Payment: with card (payment successful)";
@@ -242,6 +254,7 @@ $("#payButton").on("click", function(){
 function CheckIfWindowClosed(){
     if(isSuccess && $(".swal-overlay").css("opacity") == 0){
         RemoveItemFromStorage("checkoutList");
+        RemoveItemFromStorage("cartBurg");
         TransitionToPage("../index.html");
     }
 }
@@ -261,6 +274,7 @@ function CheckFormValidation(phase){
         else if(CheckIfStringIsEmpty($("#familyInput").val())){return false}
         else if(CheckIfStringIsEmpty($("#phoneInput").val())){return false}
         else if(CheckIfStringIsEmpty($("#adressInput").val())){return false}
+        else if(CheckIfStringIsEmpty( $("#emailInput").val())){return false}
         else if(CheckIfStringIsEmpty($("#houseInput").val())){return false}
         else if(CheckIfStringIsEmpty($("#appartamentInput").val())){return false}
 

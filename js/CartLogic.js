@@ -123,6 +123,7 @@ $("#patternsMenu").on("click", ".addToCart", function(){
         $(num[burgExistance]).find(".priceTotal").text((parseInt(perPrice.slice(0, perPrice.length - 3)) * value).toString() + "MDL");
     }
     toastBootstrap.show();
+    setTimeout(function(){toastBootstrap.hide();}, 1000);
     UpdateTotalPrice();
 });
 
@@ -185,6 +186,7 @@ $("#mainBurgContent").on("click", ".addToCart", function(){
         $(num[burgExistance]).find(".priceTotal").text((parseInt(perPrice.slice(0, perPrice.length - 3)) * value).toString() + "MDL");
     }
     toastBootstrap.show();
+    setTimeout(function(){toastBootstrap.hide();}, 1000);
     UpdateTotalPrice();
     RefreshLang();
 });
@@ -198,19 +200,21 @@ $("#paymentButton").on("click", function(){
     let names = $(".cartName");
     let counts = $(".burgerNumber");
     let prices = $(".priceTotal");
+    let cartItems = $(".cartItem");
     let i = 0;
     var items = [];
     $("#paymentButton").removeAttr("dis");
 
     for(i; i < names.length; i++){
         if($(counts[i]).val() != ""){
-            items.push($(names[i]).text() + "." + $(counts[i]).val() + "." + $(prices[i]).text().slice(0, $(prices[i]).text().length - 3));
+            items.push($(names[i]).text() + "." + $(counts[i]).val() + "." + $(prices[i]).text().slice(0, $(prices[i]).text().length - 3) + ";" + $(cartItems[i]).attr("ingredientHash"));
         }
         else{
-            items.push($(names[i]).text() + ".1." + $(prices[i]).text().slice(0, $(prices[i]).text().length - 3));
+            items.push($(names[i]).text() + ".1." + $(prices[i]).text().slice(0, $(prices[i]).text().length - 3) + ";" + $(cartItems[i]).attr("ingredientHash"));
         }
+        console.log(items[i]);
     }
-
+    
     AddItemToStorage("checkoutList", items);
 });
 

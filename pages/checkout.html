@@ -59,39 +59,39 @@
         <div class="col-lg-6 col-md-8">
             <form id="mainForm" onsubmit="reset(); return false;">
               <div id="firstPhase">
-                <p class="fs-2 formTitle trn">ВВЕДИТЕ ВАШИ ДАННЫЕ</p>
+                <p class="fs-2 formTitle trn">введите ваши данные</p>
                 <label for="nameInput" class="form-label fs-5 trn">имя</label>
-                <input id="nameInput" class="form-control form-control-md" type="text" placeholder="name" aria-label=".form-control-lg" required>
+                <input id="nameInput" class="form-control form-control-sm" type="text" placeholder="name" aria-label=".form-control-sm" required>
 
                 <label for="familyInput" class="form-label fs-5 trn">фамилия</label>
-                <input id="familyInput" class="form-control form-control-md" type="text" placeholder="surname" aria-label=".form-control-lg" required>
+                <input id="familyInput" class="form-control form-control-sm" type="text" placeholder="surname" aria-label=".form-control-sm" required>
 
                 <div class="row">
                   <div class="col">
                     <label for="phoneInput" class="form-label fs-5 trn">телефон</label>
-                    <input id="phoneInput" class="form-control form-control-md" type="tel" placeholder="+123 456 7890" aria-label=".form-control-lg" required>
+                    <input id="phoneInput" class="form-control form-control-sm" type="tel" placeholder="+123 456 7890" aria-label=".form-control-sm" required>
                   </div>
                   <div class="col">
                     <label for="emailInput" class="form-label fs-5 trn">эл. почта</label>
-                    <input id="emailInput" class="form-control form-control-md" type="email" placeholder="example@email.md" aria-label=".form-control-lg" required>
+                    <input id="emailInput" class="form-control form-control-sm" type="email" placeholder="example@email.md" aria-label=".form-control-sm" required>
                   </div>
                 </div>
 
                 <label for="adressInput" class="form-label fs-5 trn">адрес</label>
-                <input id="adressInput" class="form-control form-control-md" type="text" placeholder="str. Example 12/3" aria-label=".form-control-lg" required>
+                <input id="adressInput" class="form-control form-control-sm" type="text" placeholder="str. Example 12/3" aria-label=".form-control-sm" required>
 
                 <label for="houseInput" class="form-label fs-5 trn">дом</label>
-                <input id="houseInput" class="form-control form-control-md" type="text" placeholder="123" aria-label=".form-control-lg" required>
+                <input id="houseInput" class="form-control form-control-sm" type="text" placeholder="123" aria-label=".form-control-sm" required>
 
                 <label for="appartamentInput" class="form-label fs-5 trn">квартира</label>
-                <input id="appartamentInput" class="form-control form-control-md" type="text" placeholder="123" aria-label=".form-control-lg" required>
+                <input id="appartamentInput" class="form-control form-control-sm" type="text" placeholder="123" aria-label=".form-control-sm" required>
 
                 <button id="submitButton" class="btn-primary mt-3 fs-3 trn" type="button">оплатить</button>
-                <div id="formError1" class="errorMessage text-center fs-5 hidden">заполните всю форму!</div>
+                <div id="formError1" class="errorMessage text-center fs-5 hidden trn">заполните всю форму!</div>
               </div>
               <br /><br /><br /><br />
               <div id="secondPhase">
-                <p class="fs-2 formTitle trn">ВЫБЕРЕТЕ СПОСОБ ОПЛАТЫ</p>
+                <p class="fs-2 formTitle trn">выберете способ оплаты</p>
                 <div class="paymentChoice">
                   <div class="paymentBlock" style="justify-content: end;">
                     <div class="paymentMethod" style="transition: opacity ease-in-out 300ms;">
@@ -102,21 +102,21 @@
                       <div class="row">
                         <div class="col-6">
                           <label for="cardName" class="form-label fs-5 trn">имя на карте</label>
-                          <input id="cardName" class="form-control form-control-md" type="text" placeholder="name" aria-label=".form-control-lg" required>
+                          <input id="cardName" class="form-control form-control-md" type="text" placeholder="name" aria-label=".form-control-md" required>
                         </div>
                         <div class="col-6">
                           <label for="cardInput" class="form-label fs-5 trn">номер карты</label>
-                          <input id="cardInput" class="form-control form-control-md" type="text" placeholder="1111 2222 3333 4444" minlength="19" maxlength="19" aria-label=".form-control-lg" onpaste="return false;" required>
+                          <input id="cardInput" class="form-control form-control-md" type="text" placeholder="1111 2222 3333 4444" minlength="19" maxlength="19" aria-label=".form-control-md" onpaste="return false;" required>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-3">
-                          <label for="cardExpiration" class="form-label fs-5 trn">действительна до</label>
-                          <input id="cardExpiration" class="form-control form-control-md" type="text" placeholder="05/27" maxlength="5" aria-label=".form-control-lg" onpaste="return false;" required>
+                          <label for="cardExpiration" class="form-label fs-5 trn">срок</label>
+                          <input id="cardExpiration" class="form-control form-control-md" type="text" placeholder="05/27" maxlength="5" aria-label=".form-control-md" onpaste="return false;" required>
                         </div>
                         <div class="col-3">
                           <label for="cardCVV" class="form-label fs-5">CVV</label>
-                          <input id="cardCVV" class="form-control form-control-md" type="text" placeholder="123" minlength="3" maxlength="3" pattern="\d{3,3}" aria-label=".form-control-lg" onpaste="return false;" required>
+                          <input id="cardCVV" class="form-control form-control-md" type="text" placeholder="123" minlength="3" maxlength="3" pattern="\d{3,3}" aria-label=".form-control-md" onpaste="return false;" required>
                         </div>
                         <div class="col-6 d-flex justify-content-center align-items-center" style="height: 5.5em;">
                           <img class="h-75" src="../images/cardIcon.png" alt="...">
@@ -131,6 +131,7 @@
                       <label class="form-check-label me-3 w-100 h-100 text-center fs-4 trn" for="nalRadio">наличные</label>
                     </div>
                   </div>
+                  
                 </div>
                 <button id="backButton" class="btn-secondary mt-3 fs-3 trn" type="button">назад</button>
                 <button id="payButton" class="btn-primary mt-1 fs-3 trn" type="submit">подтвердить</button>
@@ -140,7 +141,7 @@
         <!--создаём блок счёта-->
         <div class="col-lg col-md-4" id="mainBillContent">
             <img src="../images/checkBottom.png" id="topBorderCheck">
-            <p id="mainBillTitle" class="pb-2 fs-1 trn">счёт</p>
+            <p id="mainBillTitle" class="pb-2 fs-2 trn">счёт</p>
             <div id="billInfo">
                 <div class="billItem" id="cur">
                   <div><p class="billItemTitle">машрум</p>
@@ -149,8 +150,8 @@
                   <p class="billItemPrice">60</p>
                 </div>
             </div>
-            <p id="totalPriceTitle" class="pt-2 fs-1 trn">ИТОГО</p>
-            <p id="totalPrice" class="fs-4" style="background-color: #f4f4f4;">123MDL</p>
+            <p id="totalPriceTitle" class="pt-2 fs-2 trn">итого</p>
+            <p id="totalPrice" class="fs-5" style="background-color: #f4f4f4;">123MDL</p>
             <img src="../images/checkBottom.png" id="bottomBorderCheck">
         </div>
     </div>

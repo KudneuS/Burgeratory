@@ -91,9 +91,9 @@ var voc = {
             Ro: "total:",
             En: "total:"
     },
-    "ИТОГО": {
-            Ro: "TOTAL",
-            En: "TOTAL"
+    "итого": {
+            Ro: "total",
+            En: "total"
     },
     "к оплате": {
             Ro: "a plăti",
@@ -367,9 +367,9 @@ var voc = {
             Ro: "limba",
             En: "language"
     },
-    "ВВЕДИТЕ ВАШИ ДАННЫЕ": {
-        Ro: "INTRODUCEȚI DETALII DVS",
-        En: "PROVIDE YOUR PERSONAL INFORMATION"
+    "введите ваши данные": {
+        Ro: "introduceți detalii dvs",
+        En: "provide your contacts"
     },
     "имя": {
         Ro: "nume",
@@ -407,9 +407,9 @@ var voc = {
         Ro: "genera",
         En: "generate"
     },
-    "ВЫБЕРЕТЕ СПОСОБ ОПЛАТЫ":{
-        Ro: "ALEGEȚI O METODĂ DE PLATĂ",
-        En: "CHOOSE PAYMENT METHOD"
+    "выберете способ оплаты":{
+        Ro: "alegeți o metodă de plată",
+        En: "choose payment method"
     },
     "карта":{
         Ro: "card",
@@ -427,7 +427,7 @@ var voc = {
         Ro: "numărul de card",
         En: "card number"
     },
-    "действительна до":{
+    "действ. до":{
         Ro: "data exp.",
         En: "exp. date"
     },
@@ -466,6 +466,10 @@ var voc = {
     "как сгенерировать случайный бургер?":{
         Ro: "cum se generează un burger aleatoriu?",
         En: "how to generate a random burger?"
+    },
+    "заполните всю форму!":{
+        Ro: "completați întreagă forma!",
+        En: "fill the whole form!"
     }
 };
 

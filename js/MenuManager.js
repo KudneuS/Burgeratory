@@ -43,6 +43,7 @@ $("#mainBurgContent").on("click", ".mainPreviewPattern", function(){
         $("#mainPricing").html(burgPrice);
     
         $("#mainBurgImageContainer").attr("style", "background-image: url('" + burgImage + "');");
+        $("#mainBurgImage").attr("style", "background-image: url('../images/burgBGGradient.png') !important;")
         RefreshLang();
 
         AnimateMainMenuEnabled();
