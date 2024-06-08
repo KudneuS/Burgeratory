@@ -153,6 +153,7 @@ nav{
     width: 100%;
     height: fit-content;
     pointer-events: none;
+    font-family: "Century Gothic", "Montserrat", sans-serif;
     top: 54%;
     font-weight: 900;
     font-size: 2.8vw;
@@ -165,7 +166,8 @@ nav{
     width: 100%;
     height: fit-content;
     pointer-events: none;
-    top: 50%;
+    font-family: "Century Gothic", "Montserrat", sans-serif;
+    top: 54%;
     font-weight: 900;
     font-size: 7vw;
     color: azure;
@@ -462,7 +464,7 @@ ul {
     border-radius: inherit;
 }
 
-#closeButton{
+.closeButton{
     filter: invert(1);
 }
 
