@@ -33,7 +33,7 @@ $(document).ready(function(){
         $(curObj).find(".billItemPrice").text(properties[2] + "MDL");
         for(j; hash.length > j; j++){
             let addition = "";
-            if(j != hash.length)
+            if(j != hash.length - 1)
                 addition = ", ";
 
             ingredients += ingredientTitles[parseInt(hash[j]) - 2] + addition;
@@ -146,6 +146,10 @@ $("#cardCVV").on("change input", function(){
 $("#payButton").on("click", function(){
     if(!isCardMenuActive){
         $("#cardForm").html("");
+    }
+
+    if(!CheckFormValidation(2)){
+        return;
     }
 
     //User email
@@ -277,6 +281,11 @@ function CheckFormValidation(phase){
         else if(CheckIfStringIsEmpty( $("#emailInput").val())){return false}
         else if(CheckIfStringIsEmpty($("#houseInput").val())){return false}
         else if(CheckIfStringIsEmpty($("#appartamentInput").val())){return false}
+
+        return true;
+    }
+    if(phase == 2){
+        if(!$("#cardRadio").val && !("#nalRadio").val){return false}
 
         return true;
     }
